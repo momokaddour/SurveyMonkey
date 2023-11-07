@@ -19,6 +19,18 @@ public class SurveyManager {
         surveys = new ArrayList<>();
     };
 
+
+    public void compile(Integer id) {
+        Survey s = getSurvey(id);
+
+        //Aggregate a = compile(s);
+        //aggregate.add(a);
+    }
+
+    public void answerSurvey(Integer id, Form f) {
+        Survey s = getSurvey(id);
+        //s.addForm(f); add when form classes are added to src
+    }
     public void addSurvey(Survey s) {
         surveys.add(s);
     }
@@ -34,13 +46,6 @@ public class SurveyManager {
 
     public List<Survey> getSurveys() {
         return surveys;
-    }
-
-    public void compile(Integer id) {
-        Survey s = getSurvey(id);
-
-        //Aggregate a = compile(s);
-        //aggregate.add(a);
     }
 
     public void setId(Integer id) {
