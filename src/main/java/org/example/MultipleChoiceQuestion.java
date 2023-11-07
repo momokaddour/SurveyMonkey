@@ -6,13 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class MultipleChoiceQuestion implements Question{
+public class MultipleChoiceQuestion extends AbstractQuestion implements Question{
     private String question;
     @ElementCollection
     private List<String> choices;
-    @Id
-    @GeneratedValue
-    private Integer id;
+
 
 
     public MultipleChoiceQuestion(){
@@ -36,14 +34,6 @@ public class MultipleChoiceQuestion implements Question{
 
     public List<String> getChoices() {
         return choices;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     @Override

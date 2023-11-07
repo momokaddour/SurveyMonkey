@@ -6,13 +6,11 @@ import jakarta.persistence.Id;
 
 
 @Entity
-public class NumberRangeQuestion implements Question{
+public class NumberRangeQuestion extends AbstractQuestion implements Question{
     private String question;
     private int minNumber;
     private int maxNumber;
-    @Id
-    @GeneratedValue
-    private Integer id;
+
     @Override
     public void setQuestion(String q) {
         question = q;
@@ -37,16 +35,6 @@ public class NumberRangeQuestion implements Question{
 
     public int getMinNumber() {
         return minNumber;
-    }
-
-    @Override
-    public void setId(Integer id) {
-
-    }
-
-    @Override
-    public Integer getId() {
-        return null;
     }
 
     @Override

@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Survey {
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractQuestion.class)
     private List<Question> questions;
     //add the OneToMany relationship here too
     //private ArrayList<Forms> forms;
