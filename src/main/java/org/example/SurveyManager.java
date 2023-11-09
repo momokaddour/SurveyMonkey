@@ -10,26 +10,34 @@ import java.util.Objects;
 public class SurveyManager {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Survey> surveys;
-    //add aggregate, compiler, and getters/setters
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Aggregate> aggregates;
+
+    @OneToOne
+    private Compiler compiler;
+
     @Id
     @GeneratedValue
     private Integer id;
 
     public SurveyManager() {
         surveys = new ArrayList<>();
+        aggregates = new ArrayList<>();
+        compiler = new Compiler();
     };
 
 
     public void compile(Integer id) {
         Survey s = getSurvey(id);
 
-        //Aggregate a = compile(s);
-        //aggregate.add(a);
+        Aggregate aggregate = compiler.compile(s);
+        aggregates.add(aggregate);
     }
 
     public void answerSurvey(Integer id, Form f) {
         Survey s = getSurvey(id);
-        //s.addForm(f); add when form classes are added to src
+        s.addForm(f);
     }
     public void addSurvey(Survey s) {
         surveys.add(s);
@@ -54,5 +62,14 @@ public class SurveyManager {
 
     public Integer getId() {
         return id;
+    }
+
+    public Aggregate getAggregate(Integer id) {
+        for(Aggregate a : aggregates){
+            if(Objects.equals(a.getSurveyID(), id)){
+                return a;
+            }
+        }
+        return null;
     }
 }

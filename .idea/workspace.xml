@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AbstractQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AbstractAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AbstractResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Form.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ListOfAnswerResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Survey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +39,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2Xp9yrlNeKKagxgmVQk82Ro681B" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,6 +53,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Matthew Parker/Desktop/Assignments/2023 - Fall/SYSC 4806/SurveyMonkey/SurveyMonkey",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1699315412181</updated>
       <workItem from="1699315413073" duration="6803000" />
+      <workItem from="1699554077602" duration="12103000" />
     </task>
     <servers />
   </component>
