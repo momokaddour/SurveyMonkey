@@ -26,8 +26,9 @@ public class SurveyManager {
         //Aggregate a = compile(s);
         //aggregate.add(a);
     }
-
-    public void answerSurvey(Integer id, Form f) {
+    // public void answerSurvey(Integer id, Form f) {
+    // temporarily replace method header as Form has not been created yet
+    public void answerSurvey(Integer id) {
         Survey s = getSurvey(id);
         //s.addForm(f); add when form classes are added to src
     }
