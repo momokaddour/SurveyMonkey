@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SurveyApplicationTest {
 
@@ -16,6 +17,7 @@ public class SurveyApplicationTest {
     @Test
     public void contextLoads() {
         System.out.println(port);
+        assertThat(port != 0);
         //  TODO assert controller is created
     }
 
