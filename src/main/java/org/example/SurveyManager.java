@@ -63,6 +63,7 @@ public class SurveyManager {
      */
     public void addSurvey(Survey s) {
         surveys.add(s);
+
     }
 
     /**

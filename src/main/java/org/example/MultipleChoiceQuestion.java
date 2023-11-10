@@ -14,14 +14,12 @@ public class MultipleChoiceQuestion extends AbstractQuestion implements Question
     @ElementCollection
     private List<String> choices;
 
-
     /**
      * Class Constructor
      */
     public MultipleChoiceQuestion(){
         choices = new ArrayList<>();
     }
-
 
     /**
      * Sets the Question

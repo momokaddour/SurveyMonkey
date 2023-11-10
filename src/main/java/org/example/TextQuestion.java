@@ -17,6 +17,10 @@ public class TextQuestion extends AbstractQuestion implements Question{
      */
     public TextQuestion() {};
 
+    public TextQuestion(String q) {
+        question = q;
+    };
+
     /**
      * Sets the question
      * @param q String

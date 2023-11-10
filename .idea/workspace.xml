@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="">
+<<<<<<< HEAD
 
       <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -17,6 +18,15 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" afterDir="false" />
 
+=======
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repos/SurveyRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" afterDir="false" />
+>>>>>>> 71eb7b7 (Initial push with CRUD)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,10 +84,14 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+<<<<<<< HEAD
 
     "git-widget-placeholder": "Bilal-Testing",
     "last_opened_file_path": "C:/Users/Billou/Desktop/School/Uni/4th year/SYSC 4806/Labs/Lab5",
 
+=======
+    "git-widget-placeholder": "persist",
+>>>>>>> 71eb7b7 (Initial push with CRUD)
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
