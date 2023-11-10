@@ -11,12 +11,9 @@ public class MultipleChoiceQuestion extends AbstractQuestion implements Question
     @ElementCollection
     private List<String> choices;
 
-
-
     public MultipleChoiceQuestion(){
         choices = new ArrayList<>();
     }
-
 
     @Override
     public void setQuestion(String q) {

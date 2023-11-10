@@ -7,7 +7,12 @@ import jakarta.persistence.Id;
 @Entity
 public class TextQuestion extends AbstractQuestion implements Question{
     private String question;
-    public TextQuestion() {};
+
+    public TextQuestion() {
+    };
+    public TextQuestion(String q) {
+        question = q;
+    };
     @Override
     public void setQuestion(String q) {
         question = q;

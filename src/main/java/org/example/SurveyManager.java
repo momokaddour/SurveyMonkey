@@ -33,6 +33,7 @@ public class SurveyManager {
     }
     public void addSurvey(Survey s) {
         surveys.add(s);
+
     }
 
     public Survey getSurvey(Integer id) {
@@ -42,6 +43,14 @@ public class SurveyManager {
             }
         }
         return null;
+    }
+
+    /**
+     * Saves all the surveys on close
+     * */
+    public void saveSurvey()
+    {
+
     }
 
     public List<Survey> getSurveys() {

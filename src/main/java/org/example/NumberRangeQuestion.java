@@ -11,6 +11,16 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question{
     private int minNumber;
     private int maxNumber;
 
+    public NumberRangeQuestion()
+    {}
+
+    public NumberRangeQuestion(String q, int minNumber, int maxNumber)
+    {
+        this.question = q;
+        this.maxNumber = maxNumber;
+        this.minNumber = minNumber;
+    }
+
     @Override
     public void setQuestion(String q) {
         question = q;
