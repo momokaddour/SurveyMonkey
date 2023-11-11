@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
 
       <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -27,6 +28,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" afterDir="false" />
 >>>>>>> 71eb7b7 (Initial push with CRUD)
+=======
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 9957921 (misc)
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +103,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/kousha/IdeaProjects/SYSC4806/Survey_Monkey/src/main/java/org/example/Main.java",
+    "spring.configuration.checksum": "16aa45f757430c3af3421b58175aa1f9",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -146,10 +152,14 @@
       <option name="presentableId" value="Default" />
       <updated>1699315412181</updated>
       <workItem from="1699315413073" duration="6803000" />
+<<<<<<< HEAD
       <workItem from="1699645475215" duration="3744000" />
       <workItem from="1699554077602" duration="12103000" />
       <workItem from="1699652922842" duration="5983000" />
 
+=======
+      <workItem from="1699735456870" duration="268000" />
+>>>>>>> 9957921 (misc)
     </task>
     <servers />
   </component>
