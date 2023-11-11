@@ -16,6 +16,8 @@ public class Survey {
     private List<Question> questions;
     //add the OneToMany relationship here too
     //private ArrayList<Forms> forms;
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = Form.class)
+    private List<Form> forms;
     private boolean isOpen;
     @Id
     @GeneratedValue
@@ -27,7 +29,7 @@ public class Survey {
      */
     public Survey() {
         questions = new ArrayList<>();
-        //forms forms = new ArrayList<>();
+        forms = new ArrayList<>();
         isOpen = true;
     }
 
@@ -49,9 +51,22 @@ public class Survey {
     }
 
     /**
+     * Returns the list of Forms
+     * @return, List<Form>
+     */
+    public List<Form> getForms() { return forms;}
+
+    /**
+     * Add a form to the Survey
+     * @param f, Form
+     */
+    public void addForm(Form f) { forms.add(f);}
+
+    /**
      * Set the id for the survey
      * @param id, Integer
      */
+
     public void setSurveyID(Integer id){
         surveyID = id;
     }
