@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AbstractAnswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/AbstractResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Form.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ListOfAnswerResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Survey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Survey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +47,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "matthew-format",
     "last_opened_file_path": "C:/Users/Matthew Parker/Desktop/Assignments/2023 - Fall/SYSC 4806/SurveyMonkey/SurveyMonkey",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,6 +67,7 @@
       <updated>1699315412181</updated>
       <workItem from="1699315413073" duration="6803000" />
       <workItem from="1699554077602" duration="12103000" />
+      <workItem from="1699652922842" duration="5983000" />
     </task>
     <servers />
   </component>

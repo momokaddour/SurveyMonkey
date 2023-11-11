@@ -12,4 +12,6 @@ public class MCAnswer extends AbstractAnswer implements Answer{
 
     public String getAnswer() { return answer; }
 
+    public String getAnswerType(){ return "MCAnswer"; }
+
 }

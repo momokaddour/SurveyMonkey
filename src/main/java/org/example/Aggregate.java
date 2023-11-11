@@ -22,6 +22,8 @@ public class Aggregate {
 
     public void addResult(Result r) { results.add(r); }
 
+    public Result getResult(Integer index){ return results.get(index); }
+
     public Integer getSurveyID() {return surveyID;}
 
     public void setSurveyID(Integer id){ surveyID = id; }
