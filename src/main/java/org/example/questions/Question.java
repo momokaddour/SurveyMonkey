@@ -1,4 +1,4 @@
-package org.example;
+package org.example.questions;
 
 import jakarta.persistence.Entity;
 

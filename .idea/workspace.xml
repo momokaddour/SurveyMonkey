@@ -1,199 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" afterDir="false" />
-
-=======
-=======
->>>>>>> 71eb7b7f35d6978aba90e2438ba26750ff4531bb
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManagerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/repos/SurveyRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" afterDir="false" />
->>>>>>> 71eb7b7 (Initial push with CRUD)
-=======
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
->>>>>>> 9957921 (misc)
+    <list default="true" id="ac24dc9f-3461-4f5a-be0c-05a1f468be60" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AbstractAnswer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AbstractQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/AbstractResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Aggregate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Answer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Compiler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Form.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/ListOfAnswerResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MCAnswer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/MultipleChoiceQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeAnswer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/NumberRangeQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Survey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/SurveyManagerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextAnswer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TextQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repos/SurveyRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repos/SurveyRepo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Bilalbc"
-  }
-}]]></component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="0d5f8b7e-8112-449d-a4be-6139c7aa1a06" />
-        <option name="url" value="https://github.com/momokaddour/SurveyMonkey.git" />
-      </UrlAndAccount>
-    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2Xp9yrlNeKKagxgmVQk82Ro681B" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2Y3OYFpgGNkkXdycFTcTkya6HzH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    "git-widget-placeholder": "Bilal-Testing",
-    "last_opened_file_path": "C:/Users/Billou/Desktop/School/Uni/4th year/SYSC 4806/Labs/Lab5",
-
-=======
     "git-widget-placeholder": "persist",
->>>>>>> 71eb7b7 (Initial push with CRUD)
-=======
-    "git-widget-placeholder": "persist",
->>>>>>> 71eb7b7f35d6978aba90e2438ba26750ff4531bb
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/kousha/IdeaProjects/SYSC4806/Survey_Monkey/src/main/java/org/example/Main.java",
-    "spring.configuration.checksum": "16aa45f757430c3af3421b58175aa1f9",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.SurveyApplicationTest">
-    <configuration name="SurveyApplicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Survey_Monkey" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.SurveyApplicationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SurveyMonkeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="Survey_Monkey" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.SurveyMonkeyApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.example.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.SurveyApplicationTest" />
-        <item itemvalue="Spring Boot.SurveyMonkeyApplication" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d9a2c10c-64ba-48dd-b22a-40883b032752" name="Changes" comment="" />
-      <created>1699315412181</created>
+      <changelist id="ac24dc9f-3461-4f5a-be0c-05a1f468be60" name="Changes" comment="" />
+      <created>1699750842728</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699315412181</updated>
-      <workItem from="1699315413073" duration="6803000" />
-<<<<<<< HEAD
-      <workItem from="1699645475215" duration="3744000" />
-      <workItem from="1699554077602" duration="12103000" />
-      <workItem from="1699652922842" duration="5983000" />
-
-=======
-      <workItem from="1699735456870" duration="268000" />
->>>>>>> 9957921 (misc)
+      <updated>1699750842728</updated>
+      <workItem from="1699750843791" duration="391000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

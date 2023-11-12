@@ -1,6 +1,8 @@
-package org.example;
+package org.example.questions;
 
 import jakarta.persistence.*;
+import org.example.questions.AbstractQuestion;
+import org.example.questions.Question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
  * Multiple Choice Question Class extends AbstractQuestion and implements Question
  */
 @Entity
-public class MultipleChoiceQuestion extends AbstractQuestion implements Question{
+public class MultipleChoiceQuestion extends AbstractQuestion implements Question {
     private String question;
     @ElementCollection
     private List<String> choices;

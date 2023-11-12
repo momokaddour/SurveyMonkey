@@ -1,6 +1,8 @@
-package org.example;
+package org.example.survey;
 
 import jakarta.persistence.*;
+import org.example.results.Aggregate;
+import org.example.results.Compiler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +43,6 @@ public class SurveyManager {
      */
     public void compile(Integer id) {
         Survey s = getSurvey(id);
-
         Aggregate aggregate = compiler.compile(s);
         aggregates.add(aggregate);
     }

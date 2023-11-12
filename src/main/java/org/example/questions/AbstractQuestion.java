@@ -1,4 +1,4 @@
-package org.example;
+package org.example.questions;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,14 +12,14 @@ import jakarta.persistence.Id;
 public abstract class AbstractQuestion {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Integer questionId;
 
     /**
      * Set the ID for the question
      * @param id Integer
      */
     public void setId(Integer id) {
-        this.id = id;
+        this.questionId = id;
     }
 
     /**
@@ -27,6 +27,6 @@ public abstract class AbstractQuestion {
      * @return Integer
      */
     public Integer getId() {
-        return id;
+        return questionId;
     }
 }

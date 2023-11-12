@@ -1,12 +1,14 @@
-package org.example;
+package org.example.answers;
 
 import jakarta.persistence.*;
+import org.example.results.AbstractResult;
+import org.example.results.Result;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ListOfAnswerResult extends AbstractResult implements Result{
+public class ListOfAnswerResult extends AbstractResult implements Result {
 
     @ElementCollection
     private List<String> results;

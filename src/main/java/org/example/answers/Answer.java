@@ -1,4 +1,4 @@
-package org.example;
+package org.example.answers;
 
 public interface Answer {
     void setAnswer(String s);
