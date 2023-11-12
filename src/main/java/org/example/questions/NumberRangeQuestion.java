@@ -1,18 +1,39 @@
-package org.example;
+package org.example.questions;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import org.example.questions.AbstractQuestion;
+import org.example.questions.Question;
 
 /**
  * Number Range Question extends AbstractQuestion implements Question
  * @author Kousha Motazedian
  */
 @Entity
-public class NumberRangeQuestion extends AbstractQuestion implements Question{
+public class NumberRangeQuestion extends AbstractQuestion implements Question {
     private String question;
     private int minNumber;
     private int maxNumber;
+
+    /**
+     * Constructor for class
+     *
+     * */
+    public NumberRangeQuestion()
+    {}
+
+    /**
+     * Constructor for class with parameters
+     *
+     * @param maxNumber Integer for maxNumber
+     * @param minNumber Integer for minNumber
+     * @param q for String question
+     * */
+    public NumberRangeQuestion(String q, int minNumber, int maxNumber)
+    {
+        this.question = q;
+        this.maxNumber = maxNumber;
+        this.minNumber = minNumber;
+    }
 
     /**
      * Sets the question

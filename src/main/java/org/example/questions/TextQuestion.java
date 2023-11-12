@@ -1,21 +1,30 @@
-package org.example;
+package org.example.questions;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import org.example.questions.AbstractQuestion;
+import org.example.questions.Question;
 
 /**
  * Text Question Class, extends Abstract Question and implements Question
  * @author Kousha Motazedian
  */
 @Entity
-public class TextQuestion extends AbstractQuestion implements Question{
+public class TextQuestion extends AbstractQuestion implements Question {
     private String question;
 
     /**
      * Constructor of the Class
      */
     public TextQuestion() {};
+
+    /**
+     * Constructor of the Class with parameter
+     *
+     * @param q
+     * */
+    public TextQuestion(String q) {
+        question = q;
+    };
 
     /**
      * Sets the question

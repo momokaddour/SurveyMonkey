@@ -1,4 +1,4 @@
-package org.example;
+package org.example.results;
 
 public interface Result {
     void addResponse(String s);

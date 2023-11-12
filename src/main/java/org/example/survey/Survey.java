@@ -1,6 +1,9 @@
-package org.example;
+package org.example.survey;
 
 import jakarta.persistence.*;
+import org.example.questions.AbstractQuestion;
+import org.example.questions.Question;
+import org.example.survey.Form;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +13,7 @@ import java.util.List;
  * @author Kousha Motazedian
  */
 @Entity
+@Table(name = "survey")
 public class Survey {
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractQuestion.class)
@@ -60,7 +64,10 @@ public class Survey {
      * Add a form to the Survey
      * @param f, Form
      */
-    public void addForm(Form f) { forms.add(f);}
+    public void addForm(Form f)
+    {
+        forms.add(f);
+    }
 
     /**
      * Set the id for the survey
