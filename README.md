@@ -9,6 +9,7 @@ Next Steps:
 - Full UI with functioning interactible components.
 - Different aggregate methods (Pie Chart, Histogram etc...) to be displayed.
 - Enhance compilation algorithm.
+- Increase Junit coverage. 
 
 Code Style: Primarily coded in Java v.17. Was primarily coded utilizing key concepts from SYSC 4806 and SYSC 3110 to ensure modular design is efficient and that MVC is utilized when it comes to applying Spring to the service. 
 
