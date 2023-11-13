@@ -1,23 +1,24 @@
 package org.example;
 
-import org.example.controllers.SurveyManagerController;
-import org.example.survey.Survey;
-import org.junit.Before;
 import org.junit.jupiter.api.*;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+/**
+ * Test Class
+ * Tests controller end points and function
+ * @author Bilal Chaudhry 101141634
+ * @version 1.0
+ */
 
 @SpringBootTest()
 @AutoConfigureMockMvc
@@ -30,16 +31,22 @@ public class SurveyApplicationTest {
     private static int numForms = 0;
     private static int questionID = 0;
 
+    /**
+     * Create a survey and form for each other test case
+     * @param testInfo : used to allow exclusion of certain test cases
+     * @throws Exception
+     */
     @BeforeEach
     public void testCreateSurveyAndForm(TestInfo testInfo) throws Exception {
         if (testInfo.getTags().contains("exclude")) {
             return;
         }
 
+        // increment the amount of surveys and forms
         numSurveys++;
         numForms++;
 
-        MvcResult result = mockMvc.perform(put("/createSurvey"))
+        mockMvc.perform(put("/createSurvey"))
                 .andDo(print())
                 .andExpect(jsonPath("$.surveyID").value(numSurveys))
                 .andReturn();
@@ -49,14 +56,20 @@ public class SurveyApplicationTest {
                 .andDo(print());
     }
 
+    /**
+     * Test method to test creation and answering of a TextQuestion
+     * @throws Exception
+     */
     @Test
     public void testAddAndAnswerTextQuestion() throws Exception {
 
+        // create a text question
         mockMvc.perform(put("/addTextQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "What is your name"))
                 .andDo(print());
 
+        // verify the creation of the question
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -65,6 +78,7 @@ public class SurveyApplicationTest {
                 .andExpect(jsonPath("$.questions[0].id")
                         .value(questionID + 1));
 
+        // create an answer for the question
         mockMvc.perform(put("/answerTextQuestion")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
@@ -72,6 +86,7 @@ public class SurveyApplicationTest {
                 )
                 .andDo(print());
 
+        // verify the creation of the answer
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -80,18 +95,25 @@ public class SurveyApplicationTest {
                         .value("Bilal")
                 );
 
+        // increment the ID, as question IDs are unique
         questionID++;
     }
 
+    /**
+     * Test method to test creation and answering of a MCQuestion
+     * @throws Exception
+     */
     @Test
-    public void testAddAndAnswerMcQuestion() throws Exception {
+    public void testAddAndAnswerMCQuestion() throws Exception {
 
+        // create a MC question
         mockMvc.perform(put("/addMCQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "Pick a colour")
                         .param("options", "blue!green!red!purple"))
                 .andDo(print());
 
+        // verify the creation of the MC question
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -100,6 +122,7 @@ public class SurveyApplicationTest {
                 .andExpect(jsonPath("$.questions[0].id")
                         .value(questionID + 1));
 
+        // create MC question answer
         mockMvc.perform(put("/answerMC")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
@@ -107,6 +130,7 @@ public class SurveyApplicationTest {
                 )
                 .andDo(print());
 
+        // verify the creation of the MC answer
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -117,9 +141,14 @@ public class SurveyApplicationTest {
         questionID++;
     }
 
+    /**
+     * Test method to test creation and answering of a NumRange
+     * @throws Exception
+     */
     @Test
     public void testAddAndAnswerNumRangeQuestion() throws Exception {
 
+        // create a NumRange question
         mockMvc.perform(put("/addNumRangeQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "Pick a number between 12 and 19")
@@ -127,6 +156,7 @@ public class SurveyApplicationTest {
                         .param("max", "19"))
                 .andDo(print());
 
+        // verify the creation of the question
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -139,6 +169,7 @@ public class SurveyApplicationTest {
                 .andExpect(jsonPath("$.questions[0].id")
                         .value(questionID + 1));
 
+        // create an answer for the NumRange
         mockMvc.perform(put("/answerNumRange")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
@@ -146,6 +177,7 @@ public class SurveyApplicationTest {
                 )
                 .andDo(print());
 
+        // verify the creation of the answer
         mockMvc.perform(get("/getSurvey")
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print())
@@ -156,6 +188,10 @@ public class SurveyApplicationTest {
         questionID++;
     }
 
+    /**
+     * Test method to view the forms
+     * @throws Exception
+     */
     @Test
     @Tag("exclude")
     public void testViewForms() throws Exception {
@@ -165,6 +201,10 @@ public class SurveyApplicationTest {
                 .andExpect(jsonPath("$", hasSize(1)));
     }
 
+    /**
+     * Test method to close the survey
+     * @throws Exception
+     */
     @Test
     @Tag("exclude")
     public void testCloseSurvey() throws Exception {
