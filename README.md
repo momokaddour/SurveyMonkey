@@ -55,6 +55,7 @@ Credits:
 - Akshay Vashisht -> Templates/View + controller for views
 - Kousha Motazedian -> Back-end design (Survey focus)
 - Matthew Parker -> Back-end design (Answer focus)
+
 Despite focusing on specific classes, each member contributed equally to the overall functionailty of the program.
 
 License: Copyright 2023, SurveyMonkey for SYSC 4806 Project Carleton University, released with no intent of distribution.
