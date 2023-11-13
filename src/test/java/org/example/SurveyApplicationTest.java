@@ -9,7 +9,7 @@ import org.springframework.test.web.servlet.MvcResult;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
@@ -46,12 +46,12 @@ public class SurveyApplicationTest {
         numSurveys++;
         numForms++;
 
-        mockMvc.perform(put("/createSurvey"))
+        mockMvc.perform(get("/createSurvey"))
                 .andDo(print())
                 .andExpect(jsonPath("$.surveyID").value(numSurveys))
                 .andReturn();
 
-        mockMvc.perform(put("/createForm")
+        mockMvc.perform(get("/createForm")
                         .param("surveyID", String.valueOf(numSurveys) ))
                 .andDo(print());
     }
@@ -64,7 +64,7 @@ public class SurveyApplicationTest {
     public void testAddAndAnswerTextQuestion() throws Exception {
 
         // create a text question
-        mockMvc.perform(put("/addTextQuestion")
+        mockMvc.perform(get("/addTextQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "What is your name"))
                 .andDo(print());
@@ -79,7 +79,7 @@ public class SurveyApplicationTest {
                         .value(questionID + 1));
 
         // create an answer for the question
-        mockMvc.perform(put("/answerTextQuestion")
+        mockMvc.perform(get("/answerTextQuestion")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
                         .param("answer", "Bilal")
@@ -107,7 +107,7 @@ public class SurveyApplicationTest {
     public void testAddAndAnswerMCQuestion() throws Exception {
 
         // create a MC question
-        mockMvc.perform(put("/addMCQuestion")
+        mockMvc.perform(get("/addMCQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "Pick a colour")
                         .param("options", "blue!green!red!purple"))
@@ -123,7 +123,7 @@ public class SurveyApplicationTest {
                         .value(questionID + 1));
 
         // create MC question answer
-        mockMvc.perform(put("/answerMC")
+        mockMvc.perform(get("/answerMC")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
                         .param("answer", "blue")
@@ -149,7 +149,7 @@ public class SurveyApplicationTest {
     public void testAddAndAnswerNumRangeQuestion() throws Exception {
 
         // create a NumRange question
-        mockMvc.perform(put("/addNumRangeQuestion")
+        mockMvc.perform(get("/addNumRangeQuestion")
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "Pick a number between 12 and 19")
                         .param("min", "12")
@@ -170,7 +170,7 @@ public class SurveyApplicationTest {
                         .value(questionID + 1));
 
         // create an answer for the NumRange
-        mockMvc.perform(put("/answerNumRange")
+        mockMvc.perform(get("/answerNumRange")
                         .param("formID", String.valueOf(numForms))
                         .param("questionID", String.valueOf(questionID + 1))
                         .param("answer", "15")
@@ -208,7 +208,7 @@ public class SurveyApplicationTest {
     @Test
     @Tag("exclude")
     public void testCloseSurvey() throws Exception {
-        mockMvc.perform(put("/closeSurvey")
+        mockMvc.perform(get("/closeSurvey")
                         .param("surveyID", "1"))
                 .andDo(print())
                 .andExpect(jsonPath(
