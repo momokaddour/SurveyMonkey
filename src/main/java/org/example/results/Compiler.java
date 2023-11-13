@@ -22,30 +22,25 @@ public class Compiler {
     public Aggregate compile(Survey s){
         Aggregate a = new Aggregate();
         List<Form> forms = s.getForms();
-        int i = 1;
+        int i = 0;
 
-        Map<Integer, Answer> answers = forms.get(0).getAnswers();
-        for(Map.Entry<Integer, Answer> entry : answers.entrySet()) {
-            // Not used in Milestone 1
-            String type = entry.getValue().getAnswerType();
+        Map<Integer, Answer> answers = forms.get(i).getAnswers();
+        for(int j = 0; j < answers.size(); j++){
+            String type = answers.get(j).getAnswerType();
 
             ListOfAnswerResult r = new ListOfAnswerResult();
-            r.addResponse(entry.getValue().getAnswer());
+            r.addResponse(answers.get(j).getAnswer());
             a.addResult(r);
         }
 
         while(i < forms.size()){
             Map<Integer, Answer> answers1 = forms.get(i).getAnswers();
-            int itterator  = 0;
-            for(Map.Entry<Integer, Answer> entry : answers.entrySet()){
-                Result r = a.getResult(itterator);
-                r.addResponse(answers1.get(itterator).getAnswer());
-                itterator++;
+            for(int x = 0; x < answers1.size(); x++){
+                Result r = a.getResult(x);
+                r.addResponse(answers1.get(x).getAnswer());
             }
             i++;
         }
-
-        a.setSurveyID(s.getSurveyID());
 
         return a;
     }
