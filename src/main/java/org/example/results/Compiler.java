@@ -12,6 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Responsible for compiling all results
+ * @author Matthew Parker
+ */
 @Entity
 public class Compiler {
 
@@ -19,6 +23,12 @@ public class Compiler {
     @GeneratedValue
     private Integer id;
 
+    /**
+     * Iterates through a map of answers and questions and adds the result to the aggregate
+     *
+     * @param s Survey
+     * @return Aggregate
+     */
     public Aggregate compile(Survey s){
         Aggregate a = new Aggregate();
         List<Form> forms = s.getForms();

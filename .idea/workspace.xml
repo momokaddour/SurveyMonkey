@@ -5,11 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac24dc9f-3461-4f5a-be0c-05a1f468be60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/surveyViewCreateSurvey.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/surveyViewQuestions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/surveyViewAnswerText.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/surveyViewCreateForm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/AbstractAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/AbstractAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/ListOfAnswerResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/ListOfAnswerResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/MCAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/MCAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/NumberRangeAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/NumberRangeAnswer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/answers/TextAnswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/answers/TextAnswer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controllers/SurveyManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controllers/SurveyManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/results/AbstractResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/results/AbstractResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/results/Aggregate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/results/Aggregate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/results/Compiler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/results/Compiler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/results/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/results/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/survey/Form.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/survey/Form.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +35,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -43,6 +59,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -63,6 +83,12 @@
     <configuration name="generated-requests | #6" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="6" requestIdentifier="#6" runType="Run single request">
       <method v="2" />
     </configuration>
+    <configuration name="generated-requests | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="7" requestIdentifier="#7" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #8" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="8" requestIdentifier="#8" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="SurveyMonkeyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="Survey_Monkey" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.SurveyMonkeyApplication" />
@@ -72,6 +98,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #8" />
+        <item itemvalue="HTTP Request.generated-requests | #7" />
         <item itemvalue="HTTP Request.generated-requests | #6" />
         <item itemvalue="HTTP Request.generated-requests | #5" />
       </list>
@@ -92,5 +120,48 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="templates-M1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
