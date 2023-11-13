@@ -66,7 +66,7 @@ public class SurveyManagerController {
      * @return A JSON object instance of the survey
      * */
     @Transactional
-    @RequestMapping(value = "/createSurvey", method = PUT)
+    @RequestMapping(value = "/createSurvey", method = GET)
     @ResponseBody
     public Survey createSurvey()
     {
@@ -74,8 +74,6 @@ public class SurveyManagerController {
         surveyRepo.save(survey);
         return survey;
     }
-
-
 
     /**
      * Adds a text question to the requested survey. This is done through providing the request an ID to identify
@@ -85,7 +83,7 @@ public class SurveyManagerController {
      * @param questionText String
      * */
     @Transactional
-    @RequestMapping(value = "/addTextQuestion", method = PUT)
+    @RequestMapping(value = "/addTextQuestion", method = GET)
     @ResponseBody
     public void addTextQuestion(@RequestParam(value = "surveyID") Integer ID,
                                 @RequestParam(value = "question") String questionText)
