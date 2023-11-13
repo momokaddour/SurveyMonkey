@@ -59,6 +59,7 @@ public class SurveyManagerController {
      * Request to create a brand new survey with an automatically generated ID
      * @return A JSON object instance of the survey
      * */
+    @Transactional
     @RequestMapping(value = "/createSurvey", method = PUT)
     @ResponseBody
     public Survey createSurvey()
@@ -75,6 +76,7 @@ public class SurveyManagerController {
      * @param ID Integer
      * @param questionText String
      * */
+    @Transactional
     @RequestMapping(value = "/addTextQuestion", method = PUT)
     @ResponseBody
     public void addTextQuestion(@RequestParam(value = "surveyID") Integer ID,
