@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Monkey Survey</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="'Survey: ' + ${survey.getSurveyID()}" />
+<p th:text="'Form: ' + ${form.getFormID()}" />
+<p th:text="'Question: ' + ${question.getQuestion()}" />
+<p th:text="'Answer: ' + ${answer}" />
+</body>
+</html>

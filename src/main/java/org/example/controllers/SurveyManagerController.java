@@ -2,6 +2,7 @@ package org.example.controllers;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
+import org.example.answers.Answer;
 import org.example.answers.MCAnswer;
 import org.example.answers.NumberRangeAnswer;
 import org.example.answers.TextAnswer;
@@ -23,12 +24,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
+/**
+ * SurveyManagerController class responsible for user interaction with the application
+ * @author Mohamed Kaddour, Akshay Vashisht
+ */
 @Controller
 public class SurveyManagerController {
 
@@ -68,6 +74,8 @@ public class SurveyManagerController {
         surveyRepo.save(survey);
         return survey;
     }
+
+
 
     /**
      * Adds a text question to the requested survey. This is done through providing the request an ID to identify
@@ -172,9 +180,9 @@ public class SurveyManagerController {
      *
      * @param ID survey ID that the form is for.
      * */
-    @RequestMapping(value = "/startForm", method = PUT)
+    @RequestMapping(value = "/createForm", method = PUT)
     @ResponseBody
-    public void answerMCSurveyQuestion(@RequestParam(value = "surveyID") Integer ID)
+    public void createForm(@RequestParam(value = "surveyID") Integer ID)
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
         Form form = new Form();
@@ -298,7 +306,7 @@ public class SurveyManagerController {
      * Returns the forms to view all responses for the specified Survey.
      *
      * @return form
-     * @param ID form ID
+     * @param ID Integer
      * */
     @RequestMapping(value = "/getForms", method = GET)
     @ResponseBody
@@ -308,6 +316,12 @@ public class SurveyManagerController {
         return surveyRepo.findBySurveyID(ID).getForms();
     }
 
+    /**
+     * Renders the view for the template "surveyViewCreateSurvey"
+     *
+     * @param model Model
+     * @return String
+     */
     @Transactional
     @RequestMapping(value = "/surveyViewCreateSurvey", method = GET)
     public String surveyViewCreateSurvey(Model model)
@@ -315,7 +329,7 @@ public class SurveyManagerController {
         Survey survey = new Survey();
 
         Question question1 = new TextQuestion();
-        question1.setQuestion("What is the meaning of life");
+        question1.setQuestion("What is the meaning of life?");
         Question question2 = new MultipleChoiceQuestion();
         question2.setQuestion("Which of the following is true?");
         Question question3 = new NumberRangeQuestion();
@@ -332,6 +346,33 @@ public class SurveyManagerController {
         return "surveyViewCreateSurvey";
     }
 
+    /**
+     * Renders the view for the template "surveyViewCreateForm"
+     *
+     * @param ID Integer
+     * @param model Model
+     * @return
+     */
+    @Transactional
+    @RequestMapping(value = "/surveyViewCreateForm", method = GET)
+    public String surveyViewCreateForm(@RequestParam(value = "surveyID")Integer ID, Model model)
+    {
+        Survey survey = surveyRepo.findBySurveyID(ID);
+        Form form = new Form(survey);
+        formRepo.save(form);
+
+        model.addAttribute("formID", form.getFormID());
+
+        return "surveyViewCreateForm";
+    }
+
+    /**
+     * Renders the view for the template "surveyViewQuestions"
+     *
+     * @param ID Integer
+     * @param model Model
+     * @return
+     */
     @Transactional
     @RequestMapping(value = "/surveyViewQuestions", method = GET)
     public String surveyViewQuestions(@RequestParam(value = "surveyID") Integer ID, Model model)
@@ -342,5 +383,44 @@ public class SurveyManagerController {
         model.addAttribute("surveyQuestions", surveyQuestions);
         model.addAttribute("surveyID", ID);
         return "surveyViewQuestions";
+    }
+
+    /**
+     * Renders the view for the template "surveyViewAnswerText"
+     *
+     * @param formID Integer
+     * @param questionID Integer
+     * @param surveyID Integer
+     * @param answer String
+     * @param model Model
+     * @return
+     */
+    @Transactional
+    @RequestMapping(value = "/surveyViewAnswerText", method = GET)
+    public String surveyViewAnswerText(@RequestParam(value = "formID") Integer formID,
+                                       @RequestParam(value = "questionID") Integer questionID,
+                                       @RequestParam(value = "surveyID") Integer surveyID,
+                                       @RequestParam(value = "answer") String answer, Model model)
+    {
+        Survey survey = getSurvey(surveyID);
+        Form form = getForm(formID);
+
+        Question question = survey.getQuestions().get(questionID-1);
+
+        TextAnswer textAnswer = new TextAnswer();
+        textAnswer.setAnswer(answer);
+
+        form.addAnswer(textAnswer, questionID);
+        survey.addForm(form);
+
+        formRepo.save(form);
+        surveyRepo.save(survey);
+
+        model.addAttribute("survey", survey);
+        model.addAttribute("question", question);
+        model.addAttribute("form", form);
+        model.addAttribute("answer", answer);
+
+        return "surveyViewAnswerText";
     }
 }

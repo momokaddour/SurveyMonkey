@@ -33,4 +33,7 @@ public class Form {
 
     public Map<Integer, Answer> getAnswers() { return answers; }
 
+    public Integer getFormID() {
+        return formID;
+    }
 }

@@ -51,7 +51,7 @@ public class SurveyApplicationTest {
                 .andExpect(jsonPath("$.surveyID").value(numSurveys))
                 .andReturn();
 
-        mockMvc.perform(put("/startForm")
+        mockMvc.perform(put("/createForm")
                         .param("surveyID", String.valueOf(numSurveys) ))
                 .andDo(print());
     }
