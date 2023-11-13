@@ -12,6 +12,7 @@ import org.example.questions.TextQuestion;
 import org.example.repos.FormRepo;
 import org.example.repos.QuestionRepo;
 import org.example.repos.SurveyRepo;
+import org.example.results.Aggregate;
 import org.example.results.Compiler;
 import org.example.survey.Form;
 import org.example.survey.Survey;
@@ -145,10 +146,10 @@ public class SurveyManagerController {
      * */
     @RequestMapping(value = "/closeSurvey", method = PUT)
     @ResponseBody
-    public String closeSurvey(@RequestParam(value = "surveyID") Integer ID)
+    public Aggregate closeSurvey(@RequestParam(value = "surveyID") Integer ID)
     {
-        compiler.compile(surveyRepo.findBySurveyID(ID));
-        return "Compiling Survey... ID: " + ID;
+        Aggregate aggregate = compiler.compile(surveyRepo.findBySurveyID(ID));
+        return aggregate;
     }
 
     /**
