@@ -1,11 +1,13 @@
 package org.example.controllers;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.transaction.Transactional;
 import org.example.answers.MCAnswer;
 import org.example.answers.NumberRangeAnswer;
 import org.example.answers.TextAnswer;
 import org.example.questions.MultipleChoiceQuestion;
 import org.example.questions.NumberRangeQuestion;
+import org.example.questions.Question;
 import org.example.questions.TextQuestion;
 import org.example.repos.FormRepo;
 import org.example.repos.QuestionRepo;
@@ -16,10 +18,12 @@ import org.example.survey.Survey;
 import org.example.survey.SurveyManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -299,5 +303,41 @@ public class SurveyManagerController {
     {
         //Return survey of specified ID
         return surveyRepo.findBySurveyID(ID).getForms();
+    }
+
+    @Transactional
+    @RequestMapping(value = "/surveyViewCreateSurvey", method = GET)
+    public String surveyViewCreateSurvey(Model model)
+    {
+        Survey survey = new Survey();
+
+        Question question1 = new TextQuestion();
+        question1.setQuestion("What is the meaning of life");
+        Question question2 = new MultipleChoiceQuestion();
+        question2.setQuestion("Which of the following is true?");
+        Question question3 = new NumberRangeQuestion();
+        question3.setQuestion("How many people are in the world?");
+
+        survey.addQuestion(question1);
+        survey.addQuestion(question2);
+        survey.addQuestion(question3);
+
+        surveyRepo.save(survey);
+
+        model.addAttribute("surveyID", survey.getSurveyID());
+
+        return "surveyViewCreateSurvey";
+    }
+
+    @Transactional
+    @RequestMapping(value = "/surveyViewQuestions", method = GET)
+    public String surveyViewQuestions(@RequestParam(value = "surveyID") Integer ID, Model model)
+    {
+        Survey survey = getSurvey(ID);
+        List<Question> surveyQuestions = survey.getQuestions();
+
+        model.addAttribute("surveyQuestions", surveyQuestions);
+        model.addAttribute("surveyID", ID);
+        return "surveyViewQuestions";
     }
 }
