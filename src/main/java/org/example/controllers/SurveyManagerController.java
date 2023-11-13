@@ -102,7 +102,7 @@ public class SurveyManagerController {
      * @param questionText String
      * @param options String
      * */
-    @RequestMapping(value = "/addMCQuestion", method = PUT)
+    @RequestMapping(value = "/addMCQuestion", method = GET)
     @ResponseBody
     public void addMcQuestion(@RequestParam(value = "surveyID") Integer ID,
                               @RequestParam(value = "question") String questionText,
@@ -135,7 +135,7 @@ public class SurveyManagerController {
      * @param max int
      * @param min int
      * */
-    @RequestMapping(value = "/addNumRangeQuestion", method = PUT)
+    @RequestMapping(value = "/addNumRangeQuestion", method = GET)
     @ResponseBody
     public void addNumRangeQuestion(@RequestParam(value = "surveyID") Integer ID,
                                     @RequestParam(value = "question") String questionText,
@@ -152,7 +152,7 @@ public class SurveyManagerController {
      * @return Survey
      * @param ID the ID to identify the survey to close
      * */
-    @RequestMapping(value = "/closeSurvey", method = PUT)
+    @RequestMapping(value = "/closeSurvey", method = GET)
     @ResponseBody
     public Aggregate closeSurvey(@RequestParam(value = "surveyID") Integer ID)
     {
@@ -178,7 +178,7 @@ public class SurveyManagerController {
      *
      * @param ID survey ID that the form is for.
      * */
-    @RequestMapping(value = "/createForm", method = PUT)
+    @RequestMapping(value = "/createForm", method = GET)
     @ResponseBody
     public void createForm(@RequestParam(value = "surveyID") Integer ID)
     {
@@ -197,7 +197,7 @@ public class SurveyManagerController {
      * @param s
      * @param qNum
      * */
-    @RequestMapping(value = "/answerMC", method = PUT)
+    @RequestMapping(value = "/answerMC", method = GET)
     @ResponseBody
     public void answerMCSurveyQuestion(@RequestParam(value = "formID") Integer ID,
                                        @RequestParam(value = "questionID") Integer qNum,
@@ -228,7 +228,7 @@ public class SurveyManagerController {
      * @param s
      * @param qNum
      * */
-    @RequestMapping(value = "/answerTextQuestion", method = PUT)
+    @RequestMapping(value = "/answerTextQuestion", method = GET)
     @ResponseBody
     public void answerTextQuestion(@RequestParam(value = "formID") Integer ID,
                                    @RequestParam(value = "questionID") Integer qNum,
@@ -257,7 +257,7 @@ public class SurveyManagerController {
      * @param s
      * @param qNum
      * */
-    @RequestMapping(value = "/answerNumRange", method = PUT)
+    @RequestMapping(value = "/answerNumRange", method = GET)
     @ResponseBody
     public void answerNumRangeQuestion(@RequestParam(value = "formID") Integer ID,
                                        @RequestParam(value = "questionID") Integer qNum,
