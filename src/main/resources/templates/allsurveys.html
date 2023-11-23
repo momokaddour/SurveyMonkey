@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All Surveys</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<button onclick="answerSurvey()">Answer A Survey</button>
+<button onclick="addText()">Add Text Question</button>
+<button onclick="addMC()">Add MC Question</button>
+<button onclick="addNumber()">Add Number Question</button>
+<tbody>
+<tr th:each="survey: ${surveyList}">
+  <p th:text="'This is Survey: ' + ${survey.getSurveyID()} + '!'" />
+  <p th:text="'Questions: '" />
+  <p th:text="${survey.getQuestionString()}" />
+  <br>
+</tr>
+</tbody>
+</body>
+<script>
+  function answerSurvey() {}
+  function addText() {
+    window.open("textQuestion")
+  }
+  function addMC() {
+    window.open("mcQuestion")
+  }
+  function addNumber() {
+    window.open("numberQuestion")
+  }
+</script>
+</html>

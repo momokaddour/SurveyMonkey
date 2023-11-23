@@ -326,17 +326,6 @@ public class SurveyManagerController {
     {
         Survey survey = new Survey();
 
-        Question question1 = new TextQuestion();
-        question1.setQuestion("What is the meaning of life?");
-        Question question2 = new MultipleChoiceQuestion();
-        question2.setQuestion("Which of the following is true?");
-        Question question3 = new NumberRangeQuestion();
-        question3.setQuestion("How many people are in the world?");
-
-        survey.addQuestion(question1);
-        survey.addQuestion(question2);
-        survey.addQuestion(question3);
-
         surveyRepo.save(survey);
 
         model.addAttribute("surveyID", survey.getSurveyID());
@@ -420,5 +409,39 @@ public class SurveyManagerController {
         model.addAttribute("answer", answer);
 
         return "surveyViewAnswerText";
+    }
+
+    @RequestMapping(value = "/")
+    public String mainPage() {
+        return "home";
+    }
+
+    @RequestMapping(value = "/textQuestion")
+    public String addTextQuestion() {
+        return "addText";
+    }
+
+    @RequestMapping(value = "/mcQuestion")
+    public String addMCQuestion() {
+        return "addMC";
+    }
+
+    @RequestMapping(value = "/numberQuestion")
+    public String addNumberQuestion() {
+        return "addNumber";
+    }
+
+    @RequestMapping(value = "/viewSurveys")
+    public String viewSurveys(Model m) {
+        List<Survey> allSurveys = new ArrayList<>();
+        for(Survey s: surveyRepo.findAll()){
+            allSurveys.add(s);
+        }
+
+        for(int i = 0; i < allSurveys.size(); i++){
+            m.addAttribute(allSurveys);
+        }
+
+        return "allsurveys";
     }
 }
