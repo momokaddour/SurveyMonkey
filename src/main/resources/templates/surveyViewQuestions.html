@@ -8,7 +8,7 @@
 <p th:text="'Survey ' + ${surveyID}" />
 
 <tr th:each="question: ${surveyQuestions}">
-    <td th:text="${question.getQuestion()}" />
+    <td th:text="${question.toString()}" />
 </tr>
 </body>
 </html>

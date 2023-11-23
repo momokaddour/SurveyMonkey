@@ -1,16 +1,22 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Monkey Survey</title>
+    <title>Survey Monkey</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <p>Welcome to Survey Monkey</p>
-<button onclick="ViewSurvey()">View Surveys</button>
+<button onclick="viewSurvey()">View Surveys</button>
+<button onclick="addSurvey()">Create A Survey</button>
 </body>
 <script>
-    function ViewSurvey() {
-        window.open("http://localhost:8080/viewSurveys")
+    function viewSurvey() {
+        window.open("viewSurveys")
+    }
+
+    function addSurvey() {
+        window.open("surveyViewCreateSurvey")
+        window.alert("Survey Created")
     }
 </script>
 </html>
