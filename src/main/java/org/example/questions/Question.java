@@ -30,4 +30,6 @@ public interface Question {
      * @return Integer
      */
     Integer getId();
+
+    String toString();
 }

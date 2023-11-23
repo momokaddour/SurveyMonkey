@@ -43,5 +43,9 @@ public class TextQuestion extends AbstractQuestion implements Question {
     public String getQuestion() {
         return question;
     }
-    
+
+    @Override
+    public String toString() {
+        return question;
+    }
 }

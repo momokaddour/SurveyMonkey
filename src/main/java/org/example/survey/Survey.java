@@ -57,7 +57,7 @@ public class Survey {
     public String getQuestionString() {
         String s = "";
         for (Question question : questions) {
-            s = s.concat(question.getQuestion() + "\n");
+            s = s.concat(question.toString() + "\n");
 
         }
         return s;
