@@ -8,7 +8,8 @@
 <tbody>
 <tr th:each="survey: ${surveyList}">
   <p th:text="'This is Survey: ' + ${survey.getSurveyID()} + '!'" />
-  <td th:text="${survey.getQuestions()}" />
+  <p th:text="'Questions: '" />
+  <p th:text="${survey.getQuestionString()}" />
   <br>
 </tr>
 </tbody>

@@ -38,7 +38,7 @@ public class MultipleChoiceQuestion extends AbstractQuestion implements Question
      */
     @Override
     public String getQuestion() {
-        return question;
+        return toString();
     }
 
     /**

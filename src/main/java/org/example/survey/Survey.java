@@ -54,6 +54,14 @@ public class Survey {
         return questions;
     }
 
+    public String getQuestionString() {
+        String s = "";
+        for (Question question : questions) {
+            s = s.concat(question.getQuestion() + "\n");
+
+        }
+        return s;
+    }
     /**
      * Returns the list of Forms
      * @return, List<Form>
