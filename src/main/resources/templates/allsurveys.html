@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>All Surveys</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<tbody>
+<tr th:each="survey: ${surveyList}">
+  <p th:text="'This is Survey: ' + ${survey.getSurveyID()} + '!'" />
+  <td th:text="${survey.getQuestions()}" />
+  <br>
+</tr>
+</tbody>
+</body>
+</html>

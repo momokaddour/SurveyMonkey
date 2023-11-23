@@ -421,4 +421,23 @@ public class SurveyManagerController {
 
         return "surveyViewAnswerText";
     }
+
+    @RequestMapping(value = "/")
+    public String mainPage() {
+        return "home";
+    }
+
+    @RequestMapping(value = "/viewSurveys")
+    public String viewSurveys(Model m) {
+        List<Survey> allSurveys = new ArrayList<>();
+        for(Survey s: surveyRepo.findAll()){
+            allSurveys.add(s);
+        }
+
+        for(int i = 0; i < allSurveys.size(); i++){
+            m.addAttribute(allSurveys);
+        }
+
+        return "allsurveys";
+    }
 }
