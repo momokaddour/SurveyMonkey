@@ -431,6 +431,16 @@ public class SurveyManagerController {
         return "addNumber";
     }
 
+    @RequestMapping(value = "/formCreate")
+    public String formCreate() {
+        return "createForm";
+    }
+
+    @RequestMapping(value = "/completeForm")
+    public String completeForm() {
+        return "completeForm";
+    }
+
     @RequestMapping(value = "/viewSurveys")
     public String viewSurveys(Model m) {
         List<Survey> allSurveys = new ArrayList<>();

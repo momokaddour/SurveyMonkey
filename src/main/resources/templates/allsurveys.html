@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<button onclick="answerSurvey()">Answer A Survey</button>
+<button onclick="createForm()">Create Answer Form</button>
 <button onclick="addText()">Add Text Question</button>
 <button onclick="addMC()">Add MC Question</button>
 <button onclick="addNumber()">Add Number Question</button>
@@ -20,7 +20,9 @@
 </tbody>
 </body>
 <script>
-  function answerSurvey() {}
+  function createForm() {
+    window.open("formCreate")
+  }
   function addText() {
     window.open("textQuestion")
   }

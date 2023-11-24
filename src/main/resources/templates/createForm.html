@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Answer Form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action=/createForm method="get">
+    <label for="surveyID">SurveyID</label><br>
+    <input type="number" id="surveyID" name="surveyID"><br>
+</form>
+<button onclick="completeForm()">Complete Form</button>
+</body>
+<script>
+    function completeForm() {
+        window.open("completeForm")
+    }
+</script>
+</html>

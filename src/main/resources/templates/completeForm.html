@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Form</title>
+</head>
+<body>
+<tr th:each="textQuestion: ${textQuestionList}">
+    <p th:text="${textQuestion.toString()}" />
+<form action=/answerTextQuestion method="get" target="_blank">
+    <label for="answerText">Answer:</label><br>
+    <input type="text" id="answerText" name="answerText"><br>
+    <input type="submit" value="Submit">
+</form>
+</tr>
+<tr th:each="mcQuestion: ${mcQuestionList}">
+    <p th:text="${textQuestion.toString()}" />
+    <form action=/answerTextQuestion method="get" target="_blank">
+        <label for="answerMc">Answer:</label><br>
+        <input type="text" id="answerMc" name="answerMc"><br>
+        <input type="submit" value="Submit">
+    </form>
+</tr>
+<tr th:each="textQuestion: ${textQuestionList}">
+    <p th:text="${textQuestion.toString()}" />
+    <form action=/answerTextQuestion method="get" target="_blank">
+        <label for="answerMinMax">Answer:</label><br>
+        <input type="text" id="answerMinMax" name="answerMinMax"><br>
+        <input type="submit" value="Submit">
+    </form>
+</tr>
+</tbody>
+</body>
+</html>
