@@ -4,11 +4,14 @@ import jakarta.persistence.Entity;
 import org.example.answers.AbstractAnswer;
 import org.example.answers.Answer;
 
+import javax.jdo.annotations.PersistenceCapable;
+
 /**
  * TextAnswer class for Text answer type answers
  * @author Matthew Parker
  */
 @Entity
+@PersistenceCapable
 public class TextAnswer extends AbstractAnswer implements Answer {
     private String answer;
 

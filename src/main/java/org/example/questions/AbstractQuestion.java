@@ -1,15 +1,17 @@
 package org.example.questions;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import javax.jdo.annotations.PersistenceCapable;
+import java.io.Serializable;
 
 /**
  * Abstract Class for Question, used for persistence
  * @author Kousha Motazedian
  */
 @Entity
-public abstract class AbstractQuestion {
+@PersistenceCapable
+public abstract class AbstractQuestion implements Serializable {
     @Id
     @GeneratedValue
     private Integer questionId;

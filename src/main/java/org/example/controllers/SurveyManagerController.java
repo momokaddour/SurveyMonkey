@@ -6,6 +6,7 @@ import org.example.answers.Answer;
 import org.example.answers.MCAnswer;
 import org.example.answers.NumberRangeAnswer;
 import org.example.answers.TextAnswer;
+import org.example.objectdb.ObjectDB;
 import org.example.questions.MultipleChoiceQuestion;
 import org.example.questions.NumberRangeQuestion;
 import org.example.questions.Question;
@@ -47,7 +48,17 @@ public class SurveyManagerController {
     @Autowired
     private QuestionRepo questionRepo;
 
+    private Integer counter;
+
+    private Integer qCounter;
+
+    private Integer fCounter;
+
+    private Integer aCounter;
+
     private SurveyManager surveyManager;
+
+    private ObjectDB objectDB;
 
     private Compiler compiler;
 
@@ -57,8 +68,14 @@ public class SurveyManagerController {
      * */
     @PostConstruct
     public void initialize() {
+        this.counter = 1;
+        this.qCounter = 1;
+        this.fCounter = 1;
+        this.aCounter = 1;
         this.surveyManager = new SurveyManager();
         this.compiler = new Compiler();
+        this.objectDB = new ObjectDB();
+        //this.objectDB.deleteAll();
     }
 
     /**
@@ -71,7 +88,9 @@ public class SurveyManagerController {
     public Survey createSurvey()
     {
         Survey survey = new Survey();
-        surveyRepo.save(survey);
+        survey.setSurveyID(counter++);
+        //surveyRepo.save(survey);
+        objectDB.saveSurvey(survey);
         return survey;
     }
 
@@ -88,9 +107,15 @@ public class SurveyManagerController {
     public void addTextQuestion(@RequestParam(value = "surveyID") Integer ID,
                                 @RequestParam(value = "question") String questionText)
     {
-        Survey survey = surveyRepo.findBySurveyID(ID);
-        survey.addQuestion(new TextQuestion(questionText));
-        surveyRepo.save(survey);
+        //Survey survey = surveyRepo.findBySurveyID(ID);
+        Survey survey = objectDB.getSurvey(ID);
+        TextQuestion textQuestion = new TextQuestion(questionText);
+        textQuestion.setId(qCounter++);
+        //survey.addQuestion(new TextQuestion(questionText));
+        objectDB.saveQuestion(textQuestion);
+        survey.addQuestion(textQuestion);
+        objectDB.saveSurvey(survey);
+        //surveyRepo.save(survey);
     }
 
     /**
@@ -182,10 +207,14 @@ public class SurveyManagerController {
     @ResponseBody
     public void createForm(@RequestParam(value = "surveyID") Integer ID)
     {
-        Survey survey = surveyRepo.findBySurveyID(ID);
+        //Survey survey = surveyRepo.findBySurveyID(ID);
+        Survey survey = objectDB.getSurvey(ID);
         Form form = new Form();
+        form.setFormID(this.fCounter++);
         survey.addForm(form);
-        surveyRepo.save(survey);
+        //surveyRepo.save(survey);
+        objectDB.saveForm(form);
+        objectDB.saveSurvey(survey);
     }
 
     /**
@@ -234,18 +263,25 @@ public class SurveyManagerController {
                                    @RequestParam(value = "questionID") Integer qNum,
                                    @RequestParam(value = "answer") String s)
     {
-        Form form = formRepo.findByFormID(ID);
+        //Form form = formRepo.findByFormID(ID);
+        Form form = objectDB.getForm(ID);
 
         //Checks if that question is of type Text, if not get out.
-        if (!(questionRepo.findByQuestionId(qNum) instanceof TextQuestion))
+        //if (!(questionRepo.findByQuestionId(qNum) instanceof TextQuestion))
+        if (!(objectDB.getTextQuestion(ID) instanceof TextQuestion))
         {
             //failure temporary log
             System.out.println("FAIL NOT TEXT QUESTION");
         }
         else
         {
-            form.addAnswer(new TextAnswer(s), qNum);
-            formRepo.save(form);
+            //survey.addQuestion(new TextQuestion(questionText));
+            TextAnswer textAnswer = new TextAnswer(s);
+            textAnswer.setId(aCounter++);
+            form.addAnswer(textAnswer, qNum);
+            objectDB.saveAnswer(textAnswer);
+            objectDB.saveForm(form);
+            //formRepo.save(form);
         }
     }
 

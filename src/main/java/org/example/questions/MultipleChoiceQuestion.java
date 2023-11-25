@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.example.questions.AbstractQuestion;
 import org.example.questions.Question;
 
+import javax.jdo.annotations.PersistenceCapable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  * Multiple Choice Question Class extends AbstractQuestion and implements Question
  */
 @Entity
+@PersistenceCapable
 public class MultipleChoiceQuestion extends AbstractQuestion implements Question {
     private String question;
     @ElementCollection

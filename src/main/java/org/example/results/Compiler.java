@@ -54,7 +54,7 @@ public class Compiler {
             }
             i++;
         }
-        a.setSurveyID(s.getSurveyID());
+        //a.setSurveyID(s.getSurveyID());
         return a;
     }
 

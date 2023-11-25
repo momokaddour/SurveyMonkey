@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import org.example.questions.AbstractQuestion;
 import org.example.questions.Question;
 import org.example.survey.Form;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
+import javax.jdo.annotations.PersistenceCapable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,19 +15,29 @@ import java.util.List;
  * @author Kousha Motazedian
  */
 @Entity
-@Table(name = "survey")
+@PersistenceCapable
+//@Table(name = "survey")
 public class Survey {
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractQuestion.class)
+    @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractQuestion.class, fetch = FetchType.EAGER)
     private List<Question> questions;
     //add the OneToMany relationship here too
     //private ArrayList<Forms> forms;
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Form.class)
     private List<Form> forms;
     private boolean isOpen;
-    @Id
-    @GeneratedValue
+
+    public Integer getSurveyID() {
+        return surveyID;
+    }
+
+    public void setSurveyID(Integer surveyID) {
+        this.surveyID = surveyID;
+    }
+
     @Column(name = "_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Integer surveyID;
 
     /**
@@ -69,22 +81,6 @@ public class Survey {
         forms.add(f);
     }
 
-    /**
-     * Set the id for the survey
-     * @param id, Integer
-     */
-
-    public void setSurveyID(Integer id){
-        surveyID = id;
-    }
-
-    /**
-     * Get the survey ID
-     * @return Integer
-     */
-    public Integer getSurveyID() {
-        return surveyID;
-    }
 
     /**
      * Checks if the survey is still open

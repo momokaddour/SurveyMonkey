@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import org.example.answers.AbstractAnswer;
 import org.example.answers.Answer;
 
+import javax.jdo.annotations.PersistenceCapable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Entity
+@PersistenceCapable
 public class Form {
 
     @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractAnswer.class)
@@ -36,4 +38,6 @@ public class Form {
     public Integer getFormID() {
         return formID;
     }
+
+    public void setFormID(Integer id){ formID = id;}
 }

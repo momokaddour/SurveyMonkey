@@ -1,14 +1,19 @@
 package org.example.questions;
 
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import org.example.questions.AbstractQuestion;
 import org.example.questions.Question;
+
+import javax.jdo.annotations.PersistenceCapable;
+import java.io.Serializable;
 
 /**
  * Number Range Question extends AbstractQuestion implements Question
  * @author Kousha Motazedian
  */
 @Entity
+@PersistenceCapable
 public class NumberRangeQuestion extends AbstractQuestion implements Question {
     private String question;
     private int minNumber;

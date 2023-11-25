@@ -4,11 +4,14 @@ import jakarta.persistence.Entity;
 import org.example.answers.AbstractAnswer;
 import org.example.answers.Answer;
 
+import javax.jdo.annotations.PersistenceCapable;
+
 /**
  * NumberRangeAnswer class for Numebr range type answers
  * @author Matthew Parker
  */
 @Entity
+@PersistenceCapable
 public class NumberRangeAnswer extends AbstractAnswer implements Answer {
     private String answer;
 

@@ -1,14 +1,18 @@
 package org.example.questions;
 
+import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import org.example.questions.AbstractQuestion;
 import org.example.questions.Question;
+
+import javax.jdo.annotations.PersistenceCapable;
 
 /**
  * Text Question Class, extends Abstract Question and implements Question
  * @author Kousha Motazedian
  */
 @Entity
+@PersistenceCapable
 public class TextQuestion extends AbstractQuestion implements Question {
     private String question;
 
