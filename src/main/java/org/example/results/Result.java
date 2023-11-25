@@ -16,13 +16,11 @@ public interface Result {
      * Setter for the result id
      *
      * @param id Integer
-     */
     void setId(Integer id);
 
     /**
      * Getter for result id
      *
      * @return
-     */
-    Integer getId();
+    Integer getId();*/
 }

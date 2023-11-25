@@ -10,6 +10,7 @@ import org.example.questions.MultipleChoiceQuestion;
 import org.example.questions.NumberRangeQuestion;
 import org.example.questions.Question;
 import org.example.questions.TextQuestion;
+import org.example.repos.AggregateRepo;
 import org.example.repos.FormRepo;
 import org.example.repos.QuestionRepo;
 import org.example.repos.SurveyRepo;
@@ -46,6 +47,9 @@ public class SurveyManagerController {
 
     @Autowired
     private QuestionRepo questionRepo;
+
+    @Autowired
+    private AggregateRepo aggregateRepo;
 
     private SurveyManager surveyManager;
 
@@ -154,10 +158,21 @@ public class SurveyManagerController {
      * */
     @RequestMapping(value = "/closeSurvey", method = GET)
     @ResponseBody
-    public Aggregate closeSurvey(@RequestParam(value = "surveyID") Integer ID)
+    public void closeSurvey(@RequestParam(value = "surveyID") Integer ID)
     {
-        Aggregate aggregate = compiler.compile(surveyRepo.findBySurveyID(ID));
-        return aggregate;
+        aggregateRepo.save(compiler.compile(surveyRepo.findBySurveyID(ID)));
+    }
+
+    /**
+     * Returns the requested aggregate
+     * @return Aggregate
+     * @param ID The ID to identify the aggregate
+     * */
+    @RequestMapping(value = "/getAggregate", method = GET)
+    @ResponseBody
+    public Aggregate getAggregate(@RequestParam(value = "aggregateID") Integer ID)
+    {
+        return aggregateRepo.findByAggregateID(ID);
     }
 
     /**
