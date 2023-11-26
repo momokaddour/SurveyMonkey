@@ -138,6 +138,10 @@ public class SurveyApplicationTest {
                         "$.forms[0].answers." + (questionID + 1) + ".answer")
                         .value("blue"));
 
+        mockMvc.perform(get("/closeSurvey")
+                        .param("surveyID", String.valueOf(numSurveys)))
+                .andDo(print());
+
         questionID++;
     }
 
@@ -185,6 +189,15 @@ public class SurveyApplicationTest {
                         "$.forms[0].answers." + (questionID + 1) + ".answer")
                         .value("15"));
 
+        mockMvc.perform(get("/closeSurvey")
+                        .param("surveyID", String.valueOf(numSurveys)))
+                .andDo(print());
+
+        mockMvc.perform(get("/getAggregate")
+                        .param("aggregateID", "1"))
+                .andDo(print()).
+                andExpect(jsonPath("$.results[0].answerCount." + "15").value(1));
+
         questionID++;
     }
 
@@ -200,19 +213,4 @@ public class SurveyApplicationTest {
                 .andDo(print())
                 .andExpect(jsonPath("$", hasSize(1)));
     }
-
-    /**
-     * Test method to close the survey
-     * @throws Exception
-     */
-    @Test
-    @Tag("exclude")
-    public void testCloseSurvey() throws Exception {
-        mockMvc.perform(get("/closeSurvey")
-                        .param("surveyID", "1"))
-                .andDo(print())
-                .andExpect(jsonPath(
-                        "$.surveyID").value("1"));
-    }
-
 }
