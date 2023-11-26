@@ -138,10 +138,6 @@ public class SurveyApplicationTest {
                         "$.forms[0].answers." + (questionID + 1) + ".answer")
                         .value("blue"));
 
-        mockMvc.perform(get("/closeSurvey")
-                        .param("surveyID", String.valueOf(numSurveys)))
-                .andDo(print());
-
         questionID++;
     }
 
