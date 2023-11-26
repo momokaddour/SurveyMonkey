@@ -160,7 +160,11 @@ public class SurveyManagerController {
     @ResponseBody
     public void closeSurvey(@RequestParam(value = "surveyID") Integer ID)
     {
-        aggregateRepo.save(compiler.compile(surveyRepo.findBySurveyID(ID)));
+        Survey survey = surveyRepo.findBySurveyID(ID);
+        Aggregate aggregate = compiler.compile(survey);
+
+        survey.setAggregate(aggregate);
+        surveyRepo.save(survey);
     }
 
     /**
@@ -170,9 +174,9 @@ public class SurveyManagerController {
      * */
     @RequestMapping(value = "/getAggregate", method = GET)
     @ResponseBody
-    public Aggregate getAggregate(@RequestParam(value = "aggregateID") Integer ID)
+    public Aggregate getAggregate(@RequestParam(value = "surveyID") Integer ID)
     {
-        return aggregateRepo.findByAggregateID(ID);
+        return surveyRepo.findBySurveyID(ID).getAggregate();
     }
 
     /**
