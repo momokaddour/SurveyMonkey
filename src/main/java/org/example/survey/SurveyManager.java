@@ -107,7 +107,7 @@ public class SurveyManager {
 
     public Aggregate getAggregate(Integer id) {
         for(Aggregate a : aggregates){
-            if(Objects.equals(a.getSurveyID(), id)){
+            if(Objects.equals(a.getAggregateID(), id)){
                 return a;
             }
         }

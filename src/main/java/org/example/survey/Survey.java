@@ -3,6 +3,7 @@ package org.example.survey;
 import jakarta.persistence.*;
 import org.example.questions.AbstractQuestion;
 import org.example.questions.Question;
+import org.example.results.Aggregate;
 import org.example.survey.Form;
 
 import java.util.ArrayList;
@@ -27,6 +28,9 @@ public class Survey {
     @GeneratedValue
     @Column(name = "_id")
     private Integer surveyID;
+
+    @OneToOne(cascade = CascadeType.ALL, targetEntity = Aggregate.class)
+    private Aggregate aggregate;
 
     /**
      * Survey Constructor
@@ -108,4 +112,21 @@ public class Survey {
     public void close(){
         isOpen = false;
     }
+
+    /**
+     * Getter for aggregate
+     * @return aggregate
+     * */
+    public Aggregate getAggregate() {
+        return aggregate;
+    }
+
+    /**
+     * Setter for aggregate
+     * @param aggregate Aggregate
+     * */
+    public void setAggregate(Aggregate aggregate) {
+        this.aggregate = aggregate;
+    }
+
 }

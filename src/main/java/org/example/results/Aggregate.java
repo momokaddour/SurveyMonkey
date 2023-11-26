@@ -18,7 +18,7 @@ public class Aggregate {
     @Id
     @GeneratedValue
     @Column(name = "_id")
-    private Integer surveyID;
+    private Integer aggregateID;
 
     /**
      * Constructor for Aggregate class
@@ -42,18 +42,23 @@ public class Aggregate {
      */
     public Result getResult(Integer index){ return results.get(index); }
 
+    public List<Result> getResults()
+    {
+        return this.results;
+    }
+
     /**
      * Getter for surveyID
      *
      * @return surveyID
      */
-    public Integer getSurveyID() {return surveyID;}
+    public Integer getAggregateID() {return aggregateID;}
 
     /**
      * Setter for the surveyID
      *
      * @param id Integer
      */
-    public void setSurveyID(Integer id){ surveyID = id; }
+    public void setAggregateID(Integer id){ aggregateID = id; }
 
 }
