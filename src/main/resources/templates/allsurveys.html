@@ -6,10 +6,14 @@
 </head>
 <body>
 
-<button onclick="answerSurvey()">Answer A Survey</button>
 <button onclick="addText()">Add Text Question</button>
 <button onclick="addMC()">Add MC Question</button>
 <button onclick="addNumber()">Add Number Question</button>
+<form action=/surveyViewCreateForm method="get">
+  <label for="surveyID">surveyID:</label><br>
+  <input type="number" id="surveyID" name="surveyID"><br>
+  <input type="submit" value="Submit">
+</form>
 <tbody>
 <tr th:each="survey: ${surveyList}">
   <p th:text="'This is Survey: ' + ${survey.getSurveyID()} + '!'" />
@@ -20,7 +24,6 @@
 </tbody>
 </body>
 <script>
-  function answerSurvey() {}
   function addText() {
     window.open("textQuestion")
   }

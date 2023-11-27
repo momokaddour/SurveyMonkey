@@ -53,6 +53,11 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question {
         return question;
     }
 
+    @Override
+    public String getType() {
+        return "RANGE";
+    }
+
     /**
      * Sets the Max number for the question
      * @param maxNumber, int

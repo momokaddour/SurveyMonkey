@@ -31,5 +31,7 @@ public interface Question {
      */
     Integer getId();
 
+    String getType();
+
     String toString();
 }

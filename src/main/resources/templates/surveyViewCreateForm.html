@@ -5,6 +5,39 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<p th:text="'Survey ID: ' + ${survey.getSurveyID()}"></p>
 <p th:text="'Form ID: ' + ${formID}" />
+
+<p>Questions: </p>
+
+<tr th:if="${mcList.size() > 0}">
+    <tr th:each="question : ${mcList}">
+        <p th:text="${question.getQuestion()}"></p>
+        <p th:each="choice : ${question.getChoices()}">
+            <p th:text="${choice}">
+        </p>
+        <input type="text">
+        <button>Submit</button>
+    </tr>
+</tr>
+
+<tr th:if="${rangeList.size() > 0}">
+    <tr th:each="question : ${rangeList}">
+        <p th:text="${question.getQuestion()}"></p>
+        <p th:text="'Max: ' + ${question.getMaxNumber()}"></p>
+        <p th:text="'Min: ' + ${question.getMinNumber()}"></p>
+        <input type="text">
+        <button>Submit</button>
+    </tr>
+</tr>
+
+<tr th:if="${textList.size() > 0}">
+    <tr th:each="question : ${textList}">
+        <p th:text="${question.getQuestion()}"></p>
+        <input type="text">
+        <button>Submit</button>
+    </tr>
+</tr>
+
 </body>
 </html>
