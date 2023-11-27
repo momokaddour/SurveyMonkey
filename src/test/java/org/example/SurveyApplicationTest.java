@@ -187,13 +187,6 @@ public class SurveyApplicationTest {
                         .param("surveyID", String.valueOf(numSurveys)))
                 .andDo(print());
 
-        /*
-        mockMvc.perform(get("/getAggregate")
-                        .param("aggregateID", "1"))
-                .andDo(print()).
-                andExpect(jsonPath("$.results[0].answerCount." + "15").value(1));
-         */
-
         questionID++;
     }
 
@@ -220,11 +213,23 @@ public class SurveyApplicationTest {
         mockMvc.perform(get("/closeSurvey")
                         .param("surveyID", "1"))
                 .andDo(print());
+
     }
 
-    // surveyViewForm
+
+    /**
+     * Test method to retrieve the aggregate for the survey
+     * @throws Exception
+     */
+
+    /*
     @Test
-    public void testSurveyViewForm() {
 
+    public void testGetAggregate() throws Exception {
+        mockMvc.perform(get("/getAggregate")
+                    .param("surveyID", "1"))
+                .andDo(print())
+                .andExpect(jsonPath("$.results[0].answerCount." + "15").value(1));
     }
+     */
 }
