@@ -364,7 +364,7 @@ public class SurveyManagerController {
     public String surveyViewCreateForm(@RequestParam(value = "surveyID")Integer ID, Model model)
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
-        Form form = new Form(survey);
+        Form form = new Form();
         formRepo.save(form);
 
         model.addAttribute("formID", form.getFormID());

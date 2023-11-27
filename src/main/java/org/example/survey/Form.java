@@ -5,7 +5,6 @@ import org.example.answers.AbstractAnswer;
 import org.example.answers.Answer;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -20,10 +19,6 @@ public class Form {
     private Integer formID;
 
     public Form(){
-        answers = new HashMap<>();
-    }
-
-    public Form(Survey survey){
         answers = new HashMap<>();
     }
 

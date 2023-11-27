@@ -46,6 +46,6 @@ public class TextQuestion extends AbstractQuestion implements Question {
 
     @Override
     public String toString() {
-        return question;
+        return this.question;
     }
 }
