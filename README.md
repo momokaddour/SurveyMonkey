@@ -1,11 +1,9 @@
 # SurveyMonkey
 Overview: SYSC 4806 Project For Group 25 relating to the implementation of a Mini-SurveyMonkey. This system will allow for surveyors to make flexible surveys. This system will also allow for the compilation of results in various forms. Surveyors can request to add multiple choice questions, number range questions, and text questions. Forms are then opened for each survey where questions are answered. Once the survey is closed, results are compiled and aggregated. 
 
-Build Status: As of 2023-11-12, the initial functionality of the service is up. This includes the ability to make surveys and add as many different types of questions to the survey as wanted. Also, the ability to answer said questions through multiple forms is also included. The forms are also aggregated and the aggregate is returned on compile and close (NOTE: The aggregation has yet to be fine tuned to the different intended display formats). The program is also deployed to an Azure server and can be communicated with utilizing HTTP requests and all surveys, questions and forms are stored in a database. 
+Build Status: As of 2023-11-27, the functionality of a working basic front end for the previously developed survey backend is working. This is done via the program being deployed to an Azure server which can be communicated with by utilizing HTTP requests. This includes the ability to create and answer surveys through the Azure website. The ability to traverse the website is done via buttons, and adding quesitons/answers can be done via text inputs. (NOTE: The aggregation has still yet to be fine tuned to display the different display formats)
 
 Next Steps:
-- Ensure templates are present for all different types of HTTP requests including displaying surveys, forms.
-- JavaScript implementation. 
 - Full UI with functioning interactible components.
 - Different aggregate methods (Pie Chart, Histogram etc...) to be displayed.
 - Enhance compilation algorithm.
