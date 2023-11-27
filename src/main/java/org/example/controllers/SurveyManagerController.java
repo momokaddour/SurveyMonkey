@@ -2,7 +2,6 @@ package org.example.controllers;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.transaction.Transactional;
-import org.example.answers.Answer;
 import org.example.answers.MCAnswer;
 import org.example.answers.NumberRangeAnswer;
 import org.example.answers.TextAnswer;
@@ -25,7 +24,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -364,7 +362,7 @@ public class SurveyManagerController {
     public String surveyViewCreateForm(@RequestParam(value = "surveyID")Integer ID, Model model)
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
-        Form form = new Form(survey);
+        Form form = new Form();
         formRepo.save(form);
 
         model.addAttribute("formID", form.getFormID());

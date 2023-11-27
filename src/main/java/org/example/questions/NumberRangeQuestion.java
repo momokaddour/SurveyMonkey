@@ -24,13 +24,23 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question {
     /**
      * Constructor for class with parameters
      *
+     * @param question for String question
+     * */
+    public NumberRangeQuestion(String question) {
+        this();
+        this.question = question;
+    }
+
+    /**
+     * Constructor for class with parameters
+     *
      * @param maxNumber Integer for maxNumber
      * @param minNumber Integer for minNumber
-     * @param q for String question
+     * @param question for String question
      * */
-    public NumberRangeQuestion(String q, int minNumber, int maxNumber)
+    public NumberRangeQuestion(String question, int minNumber, int maxNumber)
     {
-        this.question = q;
+        this(question);
         this.maxNumber = maxNumber;
         this.minNumber = minNumber;
     }

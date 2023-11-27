@@ -24,6 +24,14 @@ public class MultipleChoiceQuestion extends AbstractQuestion implements Question
     }
 
     /**
+     * Class Constructor
+     */
+    public MultipleChoiceQuestion(String question) {
+        this();
+        this.question = question;
+    }
+
+    /**
      * Sets the Question
      * @param q String
      */
