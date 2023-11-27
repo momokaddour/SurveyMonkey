@@ -45,6 +45,11 @@ public class TextQuestion extends AbstractQuestion implements Question {
     }
 
     @Override
+    public String getType() {
+        return "TEXT";
+    }
+
+    @Override
     public String toString() {
         return this.question;
     }

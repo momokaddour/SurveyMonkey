@@ -365,7 +365,27 @@ public class SurveyManagerController {
         Form form = new Form();
         formRepo.save(form);
 
+        List<MultipleChoiceQuestion> mcList = new ArrayList<>();
+        List<NumberRangeQuestion> rangeList = new ArrayList<>();
+        List<TextQuestion> textList = new ArrayList<>();
+
+        for (Question q : survey.getQuestions()) {
+            if (q instanceof MultipleChoiceQuestion) {
+                mcList.add((MultipleChoiceQuestion) q);
+            }
+            else if (q instanceof NumberRangeQuestion) {
+                rangeList.add((NumberRangeQuestion) q);
+            }
+            else {
+                textList.add((TextQuestion) q);
+            }
+        }
+
         model.addAttribute("formID", form.getFormID());
+        model.addAttribute("survey", survey);
+        model.addAttribute("mcList", mcList);
+        model.addAttribute("rangeList", rangeList);
+        model.addAttribute("textList", textList);
 
         return "surveyViewCreateForm";
     }
@@ -461,4 +481,6 @@ public class SurveyManagerController {
 
         return "allsurveys";
     }
+
+
 }

@@ -49,6 +49,11 @@ public class MultipleChoiceQuestion extends AbstractQuestion implements Question
         return question;
     }
 
+    @Override
+    public String getType() {
+        return "MC";
+    }
+
     /**
      * Adds a choice to the question
      * @param c String
