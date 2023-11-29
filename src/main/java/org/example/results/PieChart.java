@@ -2,7 +2,21 @@ package org.example.results;
 
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import org.example.questions.AbstractQuestion;
 import org.example.questions.MultipleChoiceQuestion;
+import org.example.questions.Question;
+import org.ibex.nestedvm.util.Seekable;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +25,9 @@ public class PieChart extends AbstractResult implements Result{
 
     @ElementCollection
     private Map<String, Integer> answerCount;
+
     private String question;
+    private Integer questionID;
     private int numAnswers;
 
     /**
@@ -22,6 +38,7 @@ public class PieChart extends AbstractResult implements Result{
     public PieChart(MultipleChoiceQuestion question)
     {
         this.question = question.getQuestion();
+        this.questionID = question.getId();
         this.numAnswers = 0;
         this.answerCount = new HashMap<>();
         for (String s : question.getChoices()) {
@@ -60,8 +77,8 @@ public class PieChart extends AbstractResult implements Result{
      *
      * @param question
      * */
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestion(Question question) {
+        this.question = question.toString();
     }
 
     /**
@@ -73,4 +90,28 @@ public class PieChart extends AbstractResult implements Result{
     {
         return this.answerCount;
     }
+
+    public boolean createChart() {
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+        for (Map.Entry<String, Integer> entry: answerCount.entrySet()) {
+            pieDataset.setValue(entry.getKey(), entry.getValue());
+        }
+
+        JFreeChart pieChart = ChartFactory.createPieChart(question, pieDataset);
+
+        pieChart.setBackgroundPaint(Color.WHITE);
+
+        File file = new File(questionID + "-PieChart.png");
+        BufferedImage bufferedImage = pieChart.createBufferedImage(1000, 1000);
+        try {
+            ImageIO.write(bufferedImage, "png", file);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+        System.out.println(questionID + "-PieChart.png saved");
+
+        return true;
+    }
+
 }

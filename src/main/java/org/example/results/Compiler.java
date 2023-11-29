@@ -86,6 +86,7 @@ public class Compiler {
                     }
 
                     results.get(qNum).addResponse(answer.getAnswer());
+
                 }
                 else if (answer instanceof NumberRangeAnswer)
                 {
@@ -109,6 +110,9 @@ public class Compiler {
         for (Result r : results.values())
         {
             a.addResult(r);
+            if( r instanceof PieChart) {
+                ((PieChart) r).createChart();
+            }
         }
 
         return a;
