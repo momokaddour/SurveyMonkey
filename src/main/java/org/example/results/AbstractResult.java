@@ -33,5 +33,4 @@ public abstract class AbstractResult {
         return id;
     }
 
-
 }

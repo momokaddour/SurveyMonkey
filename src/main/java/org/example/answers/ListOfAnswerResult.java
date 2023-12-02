@@ -31,5 +31,8 @@ public class ListOfAnswerResult extends AbstractResult implements Result {
      */
     public void addResponse(String s) { results.add(s); }
 
-
+    @Override
+    public boolean createChart() {
+        return false;
+    }
 }

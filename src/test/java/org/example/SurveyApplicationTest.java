@@ -151,7 +151,8 @@ public class SurveyApplicationTest {
                         .param("surveyID", String.valueOf(numSurveys))
                         .param("question", "Pick a number between 12 and 19")
                         .param("min", "12")
-                        .param("max", "19"))
+                        .param("max", "19")
+                        .param("range", "1"))
                 .andDo(print());
 
         // verify the creation of the question

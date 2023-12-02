@@ -13,6 +13,7 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question {
     private String question;
     private int minNumber;
     private int maxNumber;
+    private int range;
 
     /**
      * Constructor for class
@@ -37,12 +38,14 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question {
      * @param maxNumber Integer for maxNumber
      * @param minNumber Integer for minNumber
      * @param question for String question
+     * @param range
      * */
-    public NumberRangeQuestion(String question, int minNumber, int maxNumber)
+    public NumberRangeQuestion(String question, int minNumber, int maxNumber, int range)
     {
         this(question);
         this.maxNumber = maxNumber;
         this.minNumber = minNumber;
+        this.range = range;
     }
 
     /**
@@ -107,5 +110,21 @@ public class NumberRangeQuestion extends AbstractQuestion implements Question {
     @Override
     public String toString() {
         return question;
+    }
+
+    /**
+     * Getter for range
+     * @return int
+     * */
+    public int getRange() {
+        return range;
+    }
+
+    /**
+     * Setter for range
+     * @param range int
+     * */
+    public void setRange(int range) {
+        this.range = range;
     }
 }
