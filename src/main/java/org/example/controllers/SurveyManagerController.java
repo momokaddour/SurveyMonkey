@@ -15,6 +15,8 @@ import org.example.repos.QuestionRepo;
 import org.example.repos.SurveyRepo;
 import org.example.results.Aggregate;
 import org.example.results.Compiler;
+import org.example.results.Result;
+import org.example.results.TextAnswerList;
 import org.example.survey.Form;
 import org.example.survey.Survey;
 import org.example.survey.SurveyManager;
@@ -355,6 +357,26 @@ public class SurveyManagerController {
         model.addAttribute("surveyID", survey.getSurveyID());
 
         return "surveyViewCreateSurvey";
+    }
+
+    @Transactional
+    @RequestMapping(value =  "/surveyViewTextAnswerList", method = GET)
+    public String surveyViewTestAnswerResults(@RequestParam(value = "surveyID")Integer ID, Model model) {
+
+        Survey survey = surveyRepo.findBySurveyID(ID);
+
+        List<TextAnswerList> textAnswerLists = new ArrayList<>();
+
+        for(Result r :  survey.getAggregate().getResults()) {
+            if(r instanceof TextAnswerList) {
+                textAnswerLists.add((TextAnswerList) r);
+            }
+        }
+
+        model.addAttribute("survey", survey);
+        model.addAttribute("textAnswerLists", textAnswerLists);
+
+        return "surveyViewTextAnswerList";
     }
 
     /**
