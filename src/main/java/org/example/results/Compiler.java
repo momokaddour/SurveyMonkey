@@ -110,38 +110,13 @@ public class Compiler {
         for (Result r : results.values())
         {
             a.addResult(r);
-            if( r instanceof PieChart) {
-                ((PieChart) r).createChart();
+            if (!r.createChart())
+            {
+                System.out.println("Failed to save PNG");
             }
         }
 
         return a;
-
-        /*
-
-        Map<Integer, Answer> answers = forms.get(0).getAnswers();
-        for(Map.Entry<Integer, Answer> entry : answers.entrySet()) {
-            // Not used in Milestone 1
-            String type = entry.getValue().getAnswerType();
-
-            ListOfAnswerResult r = new ListOfAnswerResult();
-            r.addResponse(entry.getValue().getAnswer());
-            a.addResult(r);
-        }
-
-        while(i < forms.size()){
-            Map<Integer, Answer> answers1 = forms.get(i).getAnswers();
-            int itterator  = 0;
-            for(Map.Entry<Integer, Answer> entry : answers.entrySet()){
-                Result r = a.getResult(itterator);
-                r.addResponse(answers1.get(itterator).getAnswer());
-                itterator++;
-            }
-            i++;
-        }
-        a.setSurveyID(s.getSurveyID());
-        return a;
-        */
     }
 
 }

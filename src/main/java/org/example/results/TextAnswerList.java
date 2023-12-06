@@ -66,4 +66,9 @@ public class TextAnswerList extends AbstractResult implements Result{
     public void setQuestion(String question) {
         this.question = question;
     }
+
+    @Override
+    public boolean createChart() {
+        return false;
+    }
 }

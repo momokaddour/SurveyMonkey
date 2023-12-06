@@ -57,7 +57,7 @@ public class CompilationTest {
         textQuestion.setId(1);
 
         NumberRangeQuestion numberRangeQuestion = new NumberRangeQuestion(
-                "How many people are there in the world?", 0, 10);
+                "How many people are there in the world?", 0, 10, 2);
         numberRangeQuestion.setId(2);
 
         survey.addQuestion(MCQuestion);

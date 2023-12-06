@@ -130,22 +130,27 @@ public class SurveyManagerController {
     /**
      * Adds a num range question to the requested survey. This is done through providing the request an ID to identify
      * the desired survey and then specifying the question. Specify the maximum and minimum possible values
-     * in the request as well using the aptly named parameters.
+     * in the request as well using the aptly named parameters. The range is the range to display on the histogram.
      * @return none
      * @param ID Integer
      * @param questionText String
      * @param max int
      * @param min int
+     * @param range int
      * */
     @RequestMapping(value = "/addNumRangeQuestion", method = GET)
     @ResponseBody
     public void addNumRangeQuestion(@RequestParam(value = "surveyID") Integer ID,
                                     @RequestParam(value = "question") String questionText,
                                     @RequestParam(value = "min") int min,
-                                    @RequestParam(value = "max") int max)
+                                    @RequestParam(value = "max") int max,
+                                    @RequestParam(value = "range") int range)
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
-        survey.addQuestion(new NumberRangeQuestion(questionText, min, max));
+        if (range > (max - min)) {
+            System.out.println("INVALID RANGE...ABORTING");
+        }
+        survey.addQuestion(new NumberRangeQuestion(questionText, min, max, range));
         surveyRepo.save(survey);
     }
 

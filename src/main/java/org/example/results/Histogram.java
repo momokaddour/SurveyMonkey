@@ -4,7 +4,26 @@ import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import org.example.questions.NumberRangeQuestion;
 import org.example.questions.Question;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.NumberTickUnit;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.Dataset;
+import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.statistics.HistogramType;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,6 +32,14 @@ public class Histogram extends AbstractResult implements Result{
     @ElementCollection
     private Map<String, Integer> answerCount;
     private String question;
+
+    private int questionID;
+
+    private int range;
+
+    private int min;
+
+    private int max;
 
     /**
      * Constructor that takes in the question to initializes the map and String question
@@ -23,6 +50,10 @@ public class Histogram extends AbstractResult implements Result{
     {
         this.question = q.getQuestion();
         this.answerCount = new HashMap<>();
+        this.questionID = q.getId();
+        this.range = q.getRange();
+        this.min = q.getMinNumber();
+        this.max = q.getMaxNumber();
     }
 
     /**
@@ -75,5 +106,60 @@ public class Histogram extends AbstractResult implements Result{
      * */
     public Map<String, Integer> getAnswerCount() {
         return answerCount;
+    }
+
+    @Override
+    public boolean createChart() {
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        ArrayList<Integer> keySetToInt = new ArrayList<>();
+
+        for (int x = min; x <= max; x += range)
+        {
+
+            int count = 0;
+
+            for (String s : answerCount.keySet())
+            {
+                int i = Integer.parseInt(s);
+
+                System.out.println("i: " + i);
+
+                if ((i >= x) && (i < (x + range)))
+                {
+                    System.out.println("x: " + x + "\ni: " + i);
+                    count += answerCount.get(s);
+                }
+            }
+
+            dataset.addValue(count, "Frequency", Integer.toString(x));
+
+            if ((max - x) < 5)
+            {
+                dataset.addValue(count, "Frequency", Integer.toString(max));
+                break;
+            }
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart(question,
+                "Number Range", "Frequency", dataset, PlotOrientation.VERTICAL,
+                false, true, false);
+
+        chart.setBackgroundPaint(Color.WHITE);
+
+        CategoryPlot plot = (CategoryPlot) chart.getPlot();
+        NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
+        rangeAxis.setTickUnit(new NumberTickUnit(1));
+
+        File file = new File("src/main/temp-graphs/" + questionID + "-Histogram.png");
+        BufferedImage bufferedImage = chart.createBufferedImage(1000, 1000);
+        try {
+            ImageIO.write(bufferedImage, "png", file);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return false;
+        }
+        System.out.println(questionID + "-Histogram.png saved");
+
+        return true;
     }
 }
