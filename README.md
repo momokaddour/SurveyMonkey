@@ -18,7 +18,8 @@ How to Use:
 Design:
 
 Relational Database Schema:
-![RelationalDBSchema-M3.png](Diagrams%2FRelationalDBSchema-M3.png)
+![RelationalDBScheme-M3](https://github.com/momokaddour/SurveyMonkey/assets/76971449/3ddf14d7-fd5e-4f82-bce7-d36c532cae1c)
+
 
 UML Diagram:
 ![UML-M3.png](Diagrams%2FUML-M3.png)
