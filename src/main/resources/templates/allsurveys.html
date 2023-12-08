@@ -16,9 +16,12 @@
 </form>
 <tbody>
 <tr th:each="survey: ${surveyList}">
-  <p th:text="'This is Survey: ' + ${survey.getSurveyID()} + '!'" />
+  <p th:text="'Survey: ' + ${survey.getSurveyID()}" />
   <p th:text="'Questions: '" />
-  <p th:text="${survey.getQuestionString()}" />
+  <th:block th:each="question : ${survey.getQuestionString()}">
+    <span style="white-space: pre-line" th:text="${question}"></span>
+  </th:block>
+  <p>---------------------------</p>
   <br>
 </tr>
 </tbody>
