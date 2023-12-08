@@ -10,34 +10,54 @@
 
 <p>Questions: </p>
 
-<tr th:if="${mcList.size() > 0}">
-    <tr th:each="question : ${mcList}">
-        <p th:text="${question.getQuestion()}"></p>
-        <p th:each="choice : ${question.getChoices()}">
-            <p th:text="${choice}">
-        </p>
-        <input type="text">
-        <button>Submit</button>
-    </tr>
-</tr>
+<form th:action="@{/submitAnswers}" method="get">
+    <input type="hidden" th:name="formID" th:value="${formID}" />
 
-<tr th:if="${rangeList.size() > 0}">
-    <tr th:each="question : ${rangeList}">
+    <!-- Multiple Choice Section -->
+    <div th:if="${mcList.size() > 0}" th:each="question : ${mcList}">
         <p th:text="${question.getQuestion()}"></p>
-        <p th:text="'Max: ' + ${question.getMaxNumber()}"></p>
-        <p th:text="'Min: ' + ${question.getMinNumber()}"></p>
-        <input type="text">
-        <button>Submit</button>
-    </tr>
-</tr>
+        <div th:each="choice, iterStat : ${question.getChoices()}">
+            <input type="radio" th:id="${'radio_' + question.getId() + '_' + iterStat.index}" th:name="${'answer_' + question.getId()}" th:value="${choice}">
+            <label th:for="${'radio_' + question.getId() + '_' + iterStat.index}" th:text="${choice}"></label>
+        </div>
+        <input type="hidden" th:name="questionID" th:value="${question.getId()}"/>
+        <input type="hidden" th:name="questionType" th:value="MC"/>
+    </div>
 
-<tr th:if="${textList.size() > 0}">
-    <tr th:each="question : ${textList}">
+    <div th:if="${rangeList.size() > 0}" th:each="question : ${rangeList}">
         <p th:text="${question.getQuestion()}"></p>
-        <input type="text">
-        <button>Submit</button>
-    </tr>
-</tr>
+        <input th:type="range" th:min="${question.getMinNumber()}" th:max="${question.getMaxNumber()}" th:name="${'rangeQuestion_' + question.getId()}" class="slider">
+        <p>Value: <span th:id="${'span_' + question.getId()}"></span></p>
+        <input type="hidden" th:name="questionID" th:value="${question.getId()}" />
+        <input type="hidden" th:name="questionType" th:value="Range"/>
+    </div>
+
+    <!-- Text Section -->
+    <div th:if="${textList.size() > 0}" th:each="question : ${textList}">
+        <p th:text="${question.getQuestion()}"></p>
+        <input type="text" th:name="textQuestion" placeholder="Type your answer here">
+        <input type="hidden" th:name="questionID" th:value="${question.getId()}" />
+        <input type="hidden" th:name="questionType" th:value="Text"/>
+    </div>
+
+    <button type="submit">Submit Answers</button>
+</form>
+
+<script>
+    // Get all sliders by class name
+    var sliders = document.querySelectorAll(".slider");
+
+    sliders.forEach(function(slider) {
+        var outputId = 'span_' + slider.getAttribute('name').split('_')[1];
+        var output = document.getElementById(outputId);
+
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    });
+</script>
 
 </body>
 </html>
