@@ -14,10 +14,17 @@ public class TextAnswerList extends AbstractResult implements Result{
     private String question;
 
     /**
+     * Default Constructor for TextAnswerList
+     */
+    public TextAnswerList(){
+        this.answerList = new ArrayList<>();
+    }
+
+    /**
      * Constructor for TextAnswerList
      *
      * @param q of type TextQuestion
-     * */
+     */
     public TextAnswerList(TextQuestion q)
     {
         this.answerList = new ArrayList<>();
@@ -25,16 +32,9 @@ public class TextAnswerList extends AbstractResult implements Result{
     }
 
     /**
-     * Default Constructor for TextAnswerList
-     * */
-    public TextAnswerList(){
-        this.answerList = new ArrayList<>();
-    }
-
-    /**
      * Adds response of type string to the list of responses
      * @param s
-     * */
+     */
     @Override
     public void addResponse(String s) {
         this.answerList.add(s);
@@ -44,7 +44,7 @@ public class TextAnswerList extends AbstractResult implements Result{
      * Returns the list of answers, a list of strings
      *
      * @return List of Strings
-     * */
+     */
     public List<String> getAnswerList() {
         return this.answerList;
     }
@@ -53,7 +53,7 @@ public class TextAnswerList extends AbstractResult implements Result{
      * Getter for question associated with result
      *
      * @return String
-     * */
+     */
     public String getQuestion() {
         return question;
     }
@@ -62,13 +62,13 @@ public class TextAnswerList extends AbstractResult implements Result{
      * Setter for question associated with result
      *
      * @param question String
-     * */
+     */
     public void setQuestion(String question) {
         this.question = question;
     }
 
     @Override
-    public boolean createChart() {
-        return false;
+    public String createChart() {
+        return "";
     }
 }

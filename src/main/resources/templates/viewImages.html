@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Surveys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<tbody>
+<tr th:each="image: ${imageNames}">
+    <td><img th:src="@{${image}}" alt="" style="width:500px;height:500px"/></td>
+    <br>
+</tr>
+</tbody>
+
+
+<p>Text Answers:</p>
+<th:block th:if="${textAnswerLists.size() > 0}">
+    <th:block th:each="textAnswer : ${textAnswerLists}">
+        <p th:text="'Question ' + ${textAnswer.getId()} + ' : ' + ${textAnswer.getQuestion()} "></p>
+        <th:block th:each="answer : ${textAnswer.getAnswerList()}">
+            <p th:text="'&emsp;' + ${answer}"></p>
+        </th:block>
+    </th:block>
+</th:block>
+
+</body>
+</html>

@@ -100,7 +100,7 @@ public class Compiler {
             }
 
             //initialRun is set to false after the first form establishes a template of sorts.
-            if (initialRun)
+            if (initialRun && !f.getAnswers().isEmpty())
             {
                 initialRun = false;
             }
@@ -110,10 +110,7 @@ public class Compiler {
         for (Result r : results.values())
         {
             a.addResult(r);
-            if (!r.createChart())
-            {
-                System.out.println("Failed to save PNG");
-            }
+            a.addImageNames(r.createChart());
         }
 
         return a;
