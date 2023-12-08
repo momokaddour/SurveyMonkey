@@ -150,7 +150,7 @@ public class Histogram extends AbstractResult implements Result{
         NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
         rangeAxis.setTickUnit(new NumberTickUnit(1));
 
-        File file = new File("src/main/temp-graphs/" + questionID + "-Histogram.png");
+        File file = new File("src/main/resources/public/" + questionID + "_Histogram.png");
         BufferedImage bufferedImage = chart.createBufferedImage(1000, 1000);
         try {
             ImageIO.write(bufferedImage, "png", file);
@@ -158,8 +158,8 @@ public class Histogram extends AbstractResult implements Result{
             exception.printStackTrace();
             return "";
         }
-        System.out.println(questionID + "-Histogram.png saved");
+        System.out.println(questionID + "_Histogram.png saved");
 
-        return "src/main/temp-graphs/" + questionID + "-Histogram.png";
+        return questionID + "_Histogram.png";
     }
 }
