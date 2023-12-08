@@ -15,6 +15,9 @@ public class Aggregate {
     @OneToMany(cascade = CascadeType.ALL, targetEntity = AbstractResult.class)
     private List<Result> results;
 
+    @ElementCollection
+    private List<String> imageNames;
+
     @Id
     @GeneratedValue
     @Column(name = "_id")
@@ -24,6 +27,7 @@ public class Aggregate {
      * Constructor for Aggregate class
      */
     public Aggregate(){
+        imageNames = new ArrayList<>();
         results = new ArrayList<>();
     }
 
@@ -60,5 +64,13 @@ public class Aggregate {
      * @param id Integer
      */
     public void setAggregateID(Integer id){ aggregateID = id; }
+
+    public List<String> getImageNames() {
+        return imageNames;
+    }
+
+    public void addImageNames(String imageName) {
+        this.imageNames.add((imageName));
+    }
 
 }

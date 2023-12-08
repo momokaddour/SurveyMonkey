@@ -109,7 +109,7 @@ public class Histogram extends AbstractResult implements Result{
     }
 
     @Override
-    public boolean createChart() {
+    public String createChart() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         ArrayList<Integer> keySetToInt = new ArrayList<>();
 
@@ -156,10 +156,10 @@ public class Histogram extends AbstractResult implements Result{
             ImageIO.write(bufferedImage, "png", file);
         } catch (Exception exception) {
             exception.printStackTrace();
-            return false;
+            return "";
         }
         System.out.println(questionID + "-Histogram.png saved");
 
-        return true;
+        return "src/main/temp-graphs/" + questionID + "-Histogram.png";
     }
 }

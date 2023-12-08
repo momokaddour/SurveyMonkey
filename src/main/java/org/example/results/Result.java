@@ -17,7 +17,7 @@ public interface Result {
      *
      * @return bool
      * */
-    public abstract boolean createChart();
+    public abstract String createChart();
 
     /**
      * Setter for the result id

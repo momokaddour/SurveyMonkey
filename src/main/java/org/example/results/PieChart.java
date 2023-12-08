@@ -91,7 +91,7 @@ public class PieChart extends AbstractResult implements Result{
         return this.answerCount;
     }
 
-    public boolean createChart() {
+    public String createChart() {
         DefaultPieDataset pieDataset = new DefaultPieDataset();
         for (Map.Entry<String, Integer> entry: answerCount.entrySet()) {
             pieDataset.setValue(entry.getKey(), entry.getValue());
@@ -107,12 +107,12 @@ public class PieChart extends AbstractResult implements Result{
             ImageIO.write(bufferedImage, "png", file);
         } catch (Exception exception) {
             exception.printStackTrace();
-            return false;
+            return "";
         }
 
         System.out.println(questionID + "-PieChart.png saved");
 
-        return true;
+        return "src/main/temp-graphs/" + questionID + "-PieChart.png";
     }
 
 }

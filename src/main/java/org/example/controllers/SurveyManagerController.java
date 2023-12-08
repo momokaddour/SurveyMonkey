@@ -169,7 +169,7 @@ public class SurveyManagerController {
         survey.setAggregate(aggregate);
         survey.close();
         surveyRepo.save(survey);
-        return "Survey " + ID + " closed successfully, You can close this window";
+        return "Survey " + ID + " closed, you can close this window.";
     }
 
     /**
@@ -178,16 +178,10 @@ public class SurveyManagerController {
      * @param ID The ID to identify the aggregate
      * */
     @RequestMapping(value = "/getAggregate", method = GET)
-    @ResponseBody
-    public Aggregate getAggregate(@RequestParam(value = "surveyID") Integer ID)
+    public String getAggregate(@RequestParam(value = "surveyID") Integer ID, Model model)
     {
-        if(!surveyRepo.findBySurveyID(ID).isOpen()){
-                return surveyRepo.findBySurveyID(ID).getAggregate();
-        }
-        else{
-            System.out.println("Failure");
-            return null;
-        }
+        model.addAttribute("imageNames", surveyRepo.findBySurveyID(ID).getAggregate().getImageNames());
+        return "viewImages";
     }
 
     /**
