@@ -101,7 +101,7 @@ public class PieChart extends AbstractResult implements Result{
 
         pieChart.setBackgroundPaint(Color.WHITE);
 
-        File file = new File("src/main/temp-graphs/" + questionID + "-PieChart.png");
+        File file = new File("src/main/resources/public/" + questionID + "_PieChart.png");
         BufferedImage bufferedImage = pieChart.createBufferedImage(1000, 1000);
         try {
             ImageIO.write(bufferedImage, "png", file);
@@ -110,9 +110,9 @@ public class PieChart extends AbstractResult implements Result{
             return "";
         }
 
-        System.out.println(questionID + "-PieChart.png saved");
+        System.out.println(questionID + "_PieChart.png saved");
 
-        return "src/main/temp-graphs/" + questionID + "-PieChart.png";
+        return questionID + "_PieChart.png";
     }
 
 }
