@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Surveys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<tbody>
+<tr th:each="image: ${imageNames}">
+    <td><img th:src="@{${image}}" alt="" style="width:500px;height:500px"/></td>
+    <br>
+</tr>
+</tbody>
+</body>
+</html>

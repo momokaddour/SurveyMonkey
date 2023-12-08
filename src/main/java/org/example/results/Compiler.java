@@ -110,10 +110,7 @@ public class Compiler {
         for (Result r : results.values())
         {
             a.addResult(r);
-            if (!r.createChart())
-            {
-                System.out.println("Failed to save PNG");
-            }
+            a.addImageNames(r.createChart());
         }
 
         return a;
