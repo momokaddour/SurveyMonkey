@@ -100,7 +100,7 @@ public class Compiler {
             }
 
             //initialRun is set to false after the first form establishes a template of sorts.
-            if (initialRun)
+            if (initialRun && !f.getAnswers().isEmpty())
             {
                 initialRun = false;
             }

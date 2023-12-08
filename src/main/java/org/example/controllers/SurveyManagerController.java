@@ -15,6 +15,8 @@ import org.example.repos.QuestionRepo;
 import org.example.repos.SurveyRepo;
 import org.example.results.Aggregate;
 import org.example.results.Compiler;
+import org.example.results.Result;
+import org.example.results.TextAnswerList;
 import org.example.survey.Form;
 import org.example.survey.Survey;
 import org.example.survey.SurveyManager;
@@ -180,7 +182,21 @@ public class SurveyManagerController {
     @RequestMapping(value = "/getAggregate", method = GET)
     public String getAggregate(@RequestParam(value = "surveyID") Integer ID, Model model)
     {
-        model.addAttribute("imageNames", surveyRepo.findBySurveyID(ID).getAggregate().getImageNames());
+        Survey survey = surveyRepo.findBySurveyID(ID);
+        Aggregate aggregate = survey.getAggregate();
+
+        List<TextAnswerList> textAnswerLists = new ArrayList<>();
+
+        for(Result r :  aggregate.getResults()) {
+            if(r instanceof TextAnswerList) {
+                textAnswerLists.add((TextAnswerList) r);
+            }
+        }
+
+        model.addAttribute("survey", survey);
+        model.addAttribute("textAnswerLists", textAnswerLists);
+        model.addAttribute("imageNames", aggregate.getImageNames());
+
         return "viewImages";
     }
 
@@ -209,6 +225,7 @@ public class SurveyManagerController {
         Survey survey = surveyRepo.findBySurveyID(ID);
         Form form = new Form();
         survey.addForm(form);
+        System.out.println(form.getFormID());
         surveyRepo.save(survey);
     }
 
@@ -370,7 +387,6 @@ public class SurveyManagerController {
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
         Form form = new Form();
-        formRepo.save(form);
 
         List<MultipleChoiceQuestion> mcList = new ArrayList<>();
         List<NumberRangeQuestion> rangeList = new ArrayList<>();
@@ -387,6 +403,9 @@ public class SurveyManagerController {
                 textList.add((TextQuestion) q);
             }
         }
+
+        survey.addForm(form);
+        formRepo.save(form);
 
         model.addAttribute("formID", form.getFormID());
         model.addAttribute("survey", survey);
