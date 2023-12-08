@@ -1,6 +1,7 @@
 package org.example.controllers;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import org.example.answers.MCAnswer;
 import org.example.answers.NumberRangeAnswer;
@@ -24,10 +25,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.thymeleaf.expression.Strings;
 
 import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -240,11 +245,15 @@ public class SurveyManagerController {
      * */
     @RequestMapping(value = "/answerMC", method = GET)
     @ResponseBody
-    public void answerMCSurveyQuestion(@RequestParam(value = "formID") Integer ID,
-                                       @RequestParam(value = "questionID") Integer qNum,
-                                       @RequestParam(value = "answer") String s)
+    public void answerMCSurveyQuestion(@RequestParam(required = false, value = "formID", name="formID") Integer ID,
+                                       @RequestParam(required = false, value = "questionID", name="questionID") Integer qNum,
+                                       @RequestParam(required = false, value = "answer", name="answer") String s)
     {
         Form form = formRepo.findByFormID(ID);
+
+        System.out.println("formID: " + ID);
+        System.out.println("questionID: " + qNum);
+        System.out.println("selectedChoice: " + s);
 
         //Checks if that question is of type MC, if not get out.
         if (!(questionRepo.findByQuestionId(qNum) instanceof MultipleChoiceQuestion))
@@ -516,6 +525,89 @@ public class SurveyManagerController {
         }
 
         return "allsurveys";
+    }
+
+    @RequestMapping(value = "/submitAnswers", method = RequestMethod.GET)
+    @ResponseBody
+    public void submitAnswers(HttpServletRequest request) {
+        Integer formID = Integer.parseInt(request.getParameter("formID"));
+
+        // Iterate over all parameters in the request
+        Enumeration<String> parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+
+            // Check if the parameter is related to a question
+            if (paramName.startsWith("answer_") || paramName.startsWith("rangeQuestion_") || paramName.equals("textQuestion")) {
+                Integer questionID = Integer.parseInt(request.getParameter("questionID"));
+                String answer = request.getParameter(paramName);
+                String questionType = request.getParameter("questionType");
+
+                // Print or handle the answer as needed
+                System.out.println("FormID: " + formID);
+                System.out.println("QuestionID: " + questionID);
+                System.out.println("Answer: " + answer);
+                System.out.println("QuestionType: " + questionType);
+
+                // Handle the answer based on question type (MC, Range, Text)
+                switch (questionType) {
+                    case "MC":
+                        handleMCAnswer(formID, questionID, answer);
+                        break;
+                    case "Range":
+                        handleRangeAnswer(formID, questionID, answer);
+                        break;
+                    case "Text":
+                        handleTextAnswer(formID, questionID, answer);
+                        break;
+                    // Add more cases for other question types if needed
+                }
+            }
+        }
+    }
+
+    private void handleMCAnswer(Integer formID, Integer questionID, String answer) {
+        Form form = formRepo.findByFormID(formID);
+
+        if (!(questionRepo.findByQuestionId(questionID) instanceof MultipleChoiceQuestion)) {
+            System.out.println("FAIL NO MC QUESTION");
+        } else {
+            if ((((MultipleChoiceQuestion) questionRepo.findByQuestionId(questionID)).getChoices()).contains(answer)) {
+                form.addAnswer(new MCAnswer(answer), questionID);
+                formRepo.save(form);
+            }
+        }
+    }
+
+    private void handleRangeAnswer(Integer formID, Integer questionID, String answer) {
+        Form form = formRepo.findByFormID(formID);
+
+        if (!(questionRepo.findByQuestionId(questionID) instanceof NumberRangeQuestion question)) {
+
+            System.out.println("FAIL NOT NUM RANGE");
+        } else {
+            int number = Integer.parseInt(answer);
+
+            if ((number < question.getMinNumber()) || (number > question.getMaxNumber())) {
+                System.out.println("TEMP FAIL OUT OF RANGE");
+            } else {
+                form.addAnswer(new NumberRangeAnswer(answer), questionID);
+                formRepo.save(form);
+            }
+        }
+    }
+
+    private void handleTextAnswer(Integer formID, Integer questionID, String answer) {
+        Form form = formRepo.findByFormID(formID);
+
+        //Checks if that question is of type Text, if not get out.
+        if (!(questionRepo.findByQuestionId(questionID) instanceof TextQuestion)) {
+            //failure temporary log
+            System.out.println("FAIL NOT TEXT QUESTION");
+        } else {
+            form.addAnswer(new TextAnswer(answer), questionID);
+            formRepo.save(form);
+        }
     }
 
 
