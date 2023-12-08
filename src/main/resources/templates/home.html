@@ -8,6 +8,8 @@
 <p>Welcome to Survey Monkey</p>
 <button onclick="viewSurvey()">View Surveys</button>
 <button onclick="addSurvey()">Create A Survey</button>
+<button onclick="closeSurvey()">Close A Survey</button>
+<button onclick="viewAggregate()">View Aggregate of Survey</button>
 </body>
 <script>
     function viewSurvey() {
@@ -18,5 +20,14 @@
         window.open("surveyViewCreateSurvey")
         window.alert("Survey Created")
     }
+
+    function closeSurvey(){
+        window.open("surveyViewCloseSurvey")
+    }
+
+    function viewAggregate(){
+        window.open("surveyViewGetAggregate")
+    }
+
 </script>
 </html>

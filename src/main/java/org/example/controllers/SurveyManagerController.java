@@ -161,13 +161,15 @@ public class SurveyManagerController {
      * */
     @RequestMapping(value = "/closeSurvey", method = GET)
     @ResponseBody
-    public void closeSurvey(@RequestParam(value = "surveyID") Integer ID)
+    public String closeSurvey(@RequestParam(value = "surveyID") Integer ID)
     {
         Survey survey = surveyRepo.findBySurveyID(ID);
         Aggregate aggregate = compiler.compile(survey);
 
         survey.setAggregate(aggregate);
+        survey.close();
         surveyRepo.save(survey);
+        return "Survey " + ID + " closed successfully, You can close this window";
     }
 
     /**
@@ -179,7 +181,13 @@ public class SurveyManagerController {
     @ResponseBody
     public Aggregate getAggregate(@RequestParam(value = "surveyID") Integer ID)
     {
-        return surveyRepo.findBySurveyID(ID).getAggregate();
+        if(!surveyRepo.findBySurveyID(ID).isOpen()){
+                return surveyRepo.findBySurveyID(ID).getAggregate();
+        }
+        else{
+            System.out.println("Failure");
+            return null;
+        }
     }
 
     /**
@@ -471,6 +479,16 @@ public class SurveyManagerController {
     @RequestMapping(value = "/numberQuestion")
     public String addNumberQuestion() {
         return "addNumber";
+    }
+
+    @RequestMapping(value = "/surveyViewCloseSurvey")
+    public String surveyViewCloseSurvey() {
+        return "surveyViewCloseSurvey";
+    }
+
+    @RequestMapping(value = "/surveyViewGetAggregate")
+    public String surveyViewGetAggregate() {
+        return "surveyViewGetAggregate";
     }
 
     @RequestMapping(value = "/viewSurveys")
